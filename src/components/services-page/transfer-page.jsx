@@ -36,6 +36,33 @@ export default function TransferPage() {
 					</div>
 				</div>
 			</div>
+			<div className='container max-w-7xl mx-auto flex flex-col md:flex-row gap-5 py-20'>
+				<div className='w-full md:w-1/2 '>
+					<div className='h-[340px] max-w-[560px] mx-auto '>
+						<img
+							src='/images/additional/11.png'
+							alt='transfer'
+							className='w-full h-full object-cover rounded-3xl '
+						/>
+					</div>
+				</div>
+				<div className='w-full md:w-1/2'>
+					<span className='text-[26px] text-(--accent-color) font-medium leading-7 pb-[24px] block'>
+						ПРОКАТ АВТОМОБИЛЯ
+					</span>
+					<p className='text-[18px] text-black md:max-w-[75%] pb-[30px] font-light'>
+						Если вы предпочитаете передвигаться самостоятельно, к вашим услугам
+						современные подготовленные к зимним условиям автомобили. Старт
+						проката может быть как непосредственно из аэропорта, так и по месту
+						требования. Опция проката авто доступна сроком от суток и только по
+						Кемеровской области. Мы открыты к вашим пожеланиям и, если
+						потребуется, сможем найти индивидуальные решения.
+					</p>
+					<button className='bg-(--accent-color) px-16 py-2 rounded-3xl cursor-pointer mx-auto block'>
+						Заказать
+					</button>
+				</div>
+			</div>
 		</div>
 	)
 }
