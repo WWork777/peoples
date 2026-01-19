@@ -1,5 +1,5 @@
-import Contacts from '@/components/contacts'
 import AdditionalServices from '@/components/home-page/additional-services'
+import Contacts from '@/components/home-page/contacts'
 import Gallery from '@/components/home-page/gallery'
 import Hero from '@/components/home-page/hero'
 import Promotion from '@/components/home-page/promotion'

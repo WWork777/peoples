@@ -45,7 +45,7 @@ export default function Gallery() {
 
 	return (
 		<section className='gallery'>
-			<div className='container max-w-310 mx-auto px-3.75 flex flex-col sm:flex-row sm:justify-between sm:items-center'>
+			<div className='container max-w-7xl mx-auto px-3.75 flex flex-col sm:flex-row sm:justify-between sm:items-center'>
 				<div className='py-10 '>
 					<h2 className='text-(--accent-color) text-[25px] sm:text-[32px] font-bold text-left'>
 						ГАЛЕРЕЯ
@@ -62,7 +62,7 @@ export default function Gallery() {
 					<IoIosArrowRoundForward size={40} />
 				</Link>
 			</div>
-			<div className='container max-w-5xl mx-auto px-3.75'>
+			<div className='container max-w-7xl mx-auto px-3.75'>
 				<div className=' pb-10'>
 					<div>
 						<div className='flex items-center gap-1 justify-end pb-2'>

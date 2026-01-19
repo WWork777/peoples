@@ -61,7 +61,7 @@ export default function AdditionalServices() {
 	]
 	return (
 		<section className='additional-services'>
-			<div className='container max-w-7xl mx-auto  px-3.75'>
+			<div className='container max-w-360 mx-auto  px-3.75'>
 				<h2 className='text-(--accent-color) text-[25px] sm:text-[32px] font-bold text-center'>
 					ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
 				</h2>
