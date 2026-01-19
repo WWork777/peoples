@@ -89,17 +89,19 @@ export default function AdditionalServices() {
 										Выбрать дату
 									</button>
 								</Link>
-								<h4
-									style={{ whiteSpace: 'pre-line' }}
-									className='text-[23px] leading-7 font-bold text-center pt-[45%]'
-								>
-									{item.title}
-								</h4>
-								<Link href={item.src1}>
-									<button className='bg-white text-(--accent-color) px-8 py-1  font-bold rounded-2xl  cursor-pointer '>
-										Подробнее
-									</button>
-								</Link>
+								<div>
+									<h4
+										style={{ whiteSpace: 'pre-line' }}
+										className='text-[23px] leading-7 font-bold pb-3'
+									>
+										{item.title}
+									</h4>
+									<Link href={item.src1}>
+										<button className='bg-(--accent-color) text-white px-8 py-1  font-bold rounded-2xl  cursor-pointer '>
+											Подробнее
+										</button>
+									</Link>
+								</div>
 							</div>
 						</div>
 					))}
