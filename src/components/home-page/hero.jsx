@@ -161,7 +161,7 @@ export default function Hero() {
 				</div>
 			</header>
 
-			<section className='hero h-screen w-full relative overflow-hidden'>
+			<section className='hero h-dvh w-full relative overflow-hidden'>
 				<video
 					autoPlay
 					loop
