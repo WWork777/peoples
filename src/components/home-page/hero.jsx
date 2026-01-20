@@ -383,23 +383,23 @@ export default function Hero() {
 	const menuLinks = [
 		{
 			title: 'ДОМА И ЦЕНЫ',
-			src: '/#',
+			src: '/#widget',
 		},
 		{
 			title: 'ГАЛЕРЕЯ',
-			src: '/#',
+			src: '/gallery',
 		},
 		{
 			title: 'УСЛУГИ',
-			src: '/#',
+			src: '/#additional',
 		},
 		{
 			title: 'ОТЗЫВЫ',
-			src: '/#',
+			src: '/#reviews',
 		},
 		{
 			title: 'КОНТАКТЫ',
-			src: '/#',
+			src: '/#contacts',
 		},
 	]
 
@@ -489,13 +489,31 @@ export default function Hero() {
 							пгт. Шерегеш, Звездная улица, 8
 						</div>
 						<div className='hidden md:flex items-center gap-5'>
-							<a className='w-8' href='#'>
+							<a
+								className='w-8'
+								href='https://m.vk.com/lyudivuyute'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Наша страница ВКонтакте'
+							>
 								<img src='/images/socials/vk.webp' alt='vk' />
 							</a>
-							<a className='w-8' href='#'>
+							<a
+								className='w-8'
+								href='https://t.me/lyudivuyuteinfo'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Наш Telegram канал'
+							>
 								<img src='/images/socials/tg.webp' alt='tg' />
 							</a>
-							<a className='w-8' href='#'>
+							<a
+								className='w-8'
+								href='https://wa.me/79991234567'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Напишите нам в WhatsApp'
+							>
 								<img src='/images/socials/wa.webp' alt='wa' />
 							</a>
 						</div>
@@ -539,14 +557,32 @@ export default function Hero() {
 							<div className='address hidden md:block'>
 								пгт. Шерегеш, Звездная улица, 8
 							</div>
-							<div className='socials hidden md:flex items-center gap-5'>
-								<a className='w-8' href='#'>
+							<div className='hidden md:flex items-center gap-5'>
+								<a
+									className='w-8'
+									href='https://m.vk.com/lyudivuyute'
+									target='_blank'
+									rel='noopener noreferrer'
+									aria-label='Наша страница ВКонтакте'
+								>
 									<img src='/images/socials/vk.webp' alt='vk' />
 								</a>
-								<a className='w-8' href='#'>
+								<a
+									className='w-8'
+									href='https://t.me/lyudivuyuteinfo'
+									target='_blank'
+									rel='noopener noreferrer'
+									aria-label='Наш Telegram канал'
+								>
 									<img src='/images/socials/tg.webp' alt='tg' />
 								</a>
-								<a className='w-8' href='#'>
+								<a
+									className='w-8'
+									href='https://wa.me/79991234567'
+									target='_blank'
+									rel='noopener noreferrer'
+									aria-label='Напишите нам в WhatsApp'
+								>
 									<img src='/images/socials/wa.webp' alt='wa' />
 								</a>
 							</div>
@@ -570,9 +606,11 @@ export default function Hero() {
 								<h2 className='text-xl sm:text-[24px]  leading-relaxed md:leading-8'>
 									Ваш лучший отдых с видом <br /> на заснеженные вершины гор
 								</h2>
-								<button className='bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] max-w-full w-[320px] mx-auto md:mx-0 md:max-w-63.75 transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95'>
-									Забронировать
-								</button>
+								<Link href={'/#widget'}>
+									<button className='bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] max-w-full w-[320px] mx-auto md:mx-0 md:max-w-63.75 transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95'>
+										Забронировать
+									</button>
+								</Link>
 								<div className=' flex items-end justify-center gap-10 md:hidden iphoneSe-hidden'>
 									<img
 										className='w-20'
@@ -681,12 +719,15 @@ export default function Hero() {
 					))}
 
 					{/* Кнопка бронирования в меню */}
-					<button
-						onClick={closeMenu}
-						className='mt-8 bg-(--accent-color) text-white py-3 px-8 font-medium rounded-[30px] hover:opacity-90 transition-opacity'
-					>
-						Забронировать
-					</button>
+					<Link href={'/#widget'}>
+						{' '}
+						<button
+							onClick={closeMenu}
+							className='mt-8 bg-(--accent-color) text-white py-3 px-8 font-medium rounded-[30px] hover:opacity-90 transition-opacity'
+						>
+							Забронировать
+						</button>
+					</Link>
 				</div>
 
 				{/* CSS анимации */}

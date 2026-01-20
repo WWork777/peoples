@@ -59,7 +59,7 @@ export default function Promotion() {
 								</div>
 							</div>
 							<div className=' pt-10 md:pt-2 md:min-w-1/2 relative'>
-								<Link href={'/#'}>
+								<Link href={'/gallery'}>
 									<button className='bg-white text-(--accent-color) px-8 py-1  font-bold rounded-2xl  cursor-pointer md:absolute md:bottom-0 md:right-0 mx-auto block'>
 										Смотреть дом
 									</button>

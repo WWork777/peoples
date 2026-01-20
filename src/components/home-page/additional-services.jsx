@@ -7,60 +7,60 @@ export default function AdditionalServices() {
 			title: 'ТРАНСФЕР',
 			img: '/images/additional/1.png',
 			src1: '/services/transfer',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 2,
 			title: 'ИНСТРУКТОР',
 			img: '/images/additional/2.png',
 			src1: '/services/instructor',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 3,
 			title: 'ПРОЖИВАНИЕ\nС ЖИВОТНЫМИ',
 			img: '/images/additional/3.png',
 			src1: '/services/pet',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 4,
 			title: 'КОФЕЙНЯ',
 			img: '/images/additional/4.png',
 			src1: '/services/coffee',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 5,
 			title: 'ПРОКАТ',
 			img: '/images/additional/5.png',
 			src1: '/services/rental',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 6,
 			title: 'ПРОЖИВАНИЕ\nС ДЕТЬМИ',
 			img: '/images/additional/6.png',
 			src1: '/services/children',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 7,
 			title: 'УБОРКА',
 			img: '/images/additional/7.png',
 			src1: '/services/cleaning',
-			src2: '/data',
+			src2: '/#widget',
 		},
 		{
 			id: 8,
 			title: 'ДОСТАВКА ЕДЫ',
 			img: '/images/additional/8.png',
 			src1: '/services/delivery',
-			src2: '/data',
+			src2: '/#widget',
 		},
 	]
 	return (
-		<section className='additional-services'>
+		<section id='additional' className='additional-services'>
 			<div className='container max-w-360 mx-auto  px-3.75'>
 				<h2 className='text-(--accent-color) text-[25px] sm:text-[32px] font-bold text-center'>
 					ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ

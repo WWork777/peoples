@@ -21,7 +21,7 @@ export default function Dobro() {
 						</div>
 					</div>
 					<div className='w-full md:w-1/2 flex items-end justify-center md:justify-end '>
-						<Link href={'/#'}>
+						<Link href={'/dobro'}>
 							<button className='bg-white text-(--accent-color) px-16 py-2  font-bold rounded-3xl  cursor-pointer'>
 								Открыть
 							</button>

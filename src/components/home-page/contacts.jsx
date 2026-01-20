@@ -4,7 +4,10 @@ import YandexRatingBadge from '../yandex-rating-badge'
 
 export default function Contacts() {
 	return (
-		<section className='contacts bg-[url("/images/contacts/contacts_bg.png")]  '>
+		<section
+			id='contacts'
+			className='contacts bg-[url("/images/contacts/contacts_bg.png")]  '
+		>
 			<div className='container max-w-7xl mx-auto px-3.75 py-10 flex flex-col md:flex-row'>
 				<div className=' w-full md:w-1/2'>
 					<h2 className='text-white text-[25px] sm:text-[32px] font-bold text-left'>
@@ -108,13 +111,13 @@ export default function Contacts() {
 					</ul>
 					<ul className='pt-5 text-[12px]'>
 						<li className='pb-1'>
-							<Link href={'/#'}>Политика конфиденциальности</Link>
+							<Link href={'/privacy'}>Политика конфиденциальности</Link>
 						</li>
 						<li className='pb-1 text-orange-500'>
-							<Link href={'/#'}>Правила проживания</Link>
+							<Link href={'/rules'}>Правила проживания</Link>
 						</li>
 						<li>
-							<Link href={'/#'}>Договор оферты</Link>
+							<Link href={'/offer'}>Договор оферты</Link>
 						</li>
 					</ul>
 					<Link className='flex items-center gap-5 pt-10' href={'/'}>

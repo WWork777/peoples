@@ -118,12 +118,14 @@ export default function GallerySlider({ swiperRef }) {
 		'/images/gallery/17.webp',
 		'/images/gallery/18.webp',
 		'/images/gallery/19.webp',
-		'/images/gallery/20.jpg',
-		'/images/gallery/21.jpg',
-		'/images/gallery/22.jpg',
-		'/images/gallery/23.jpg',
+		'/images/gallery/20.webp',
+		'/images/gallery/21.webp',
+		'/images/gallery/22.webp',
+		'/images/gallery/23.webp',
 		'/images/gallery/24.webp',
 		'/images/gallery/25.webp',
+		'/images/gallery/26.webp',
+		'/images/gallery/27.webp',
 	]
 
 	return (
