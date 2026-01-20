@@ -83,26 +83,28 @@ export default function AdditionalServices() {
 									alt={item.title}
 								/>
 							</div>
-							<div className='absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-black/10 rounded-3xl flex flex-col justify-between p-5'>
-								<Link href={item.src2}>
-									<button className='bg-white text-(--accent-color) px-8 py-1  font-bold rounded-2xl cursor-pointer block ml-auto'>
-										Выбрать дату
-									</button>
-								</Link>
-								<div>
-									<h4
-										style={{ whiteSpace: 'pre-line' }}
-										className='text-[23px] leading-7 font-bold pb-3'
-									>
-										{item.title}
-									</h4>
-									<Link href={item.src1}>
+							<Link href={item.src1}>
+								<div className='absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-black/10 rounded-3xl flex flex-col justify-between p-5'>
+									<Link href={item.src2}>
+										<button className='bg-white text-(--accent-color) px-8 py-1  font-bold rounded-2xl cursor-pointer block ml-auto'>
+											Выбрать дату
+										</button>
+									</Link>
+
+									<div>
+										<h4
+											style={{ whiteSpace: 'pre-line' }}
+											className='text-[23px] leading-7 font-bold pb-3'
+										>
+											{item.title}
+										</h4>
+
 										<button className='bg-(--accent-color) text-white px-8 py-1  font-bold rounded-2xl  cursor-pointer '>
 											Подробнее
 										</button>
-									</Link>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 					))}
 				</div>
