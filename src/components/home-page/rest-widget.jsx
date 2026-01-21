@@ -4,58 +4,40 @@ import { useEffect } from "react";
 
 export default function RestWidget() {
   useEffect(() => {
-    // Чтобы не грузить скрипт несколько раз при переходах
-    const SCRIPT_ID = "bookonline24-widget-script";
-    const existing = document.getElementById(SCRIPT_ID);
+    const SCRIPT_ID = "kontur-hotel-widget";
+    const FLAG_INIT = "__KONTUR_WIDGET_INIT__";
+    const FLAG_ADDED = "__KONTUR_WIDGET_ADDED__";
 
-    const initWidget = () => {
+    const initAndAdd = () => {
       if (!window.HotelWidget) return;
 
-      // Инициализация (один раз)
-      window.HotelWidget.init({
-        hotelId: "a032e796-375f-4350-b834-759226169822",
-        version: "2",
-        hooks: {
-          onError: (e) => console.error("onError", e),
-          onInit: () => console.log("onInit"),
-          onBooking: (v) => console.log("onBooking", v),
-        },
-      });
+      if (!window[FLAG_INIT]) {
+        window.HotelWidget.init({
+          hotelId: "ВАШ_HOTEL_ID_С_РАБОЧЕГО_САЙТА",
+          version: "2",
+          baseUrl: "https://bookonline24.ru",
+          hooks: {
+            onError: (e) => console.error("Kontur widget onError:", e),
+            onInit: () => console.log("Kontur widget onInit"),
+          },
+        });
+        window[FLAG_INIT] = true;
+      }
 
-      // ВСТАВКА в твой контейнер
-      window.HotelWidget.add({
-        type: "bookingForm",
-        inline: true,
-        appearance: {
-          container: "hotel-widget-container",
-        },
-      });
-
-      // ⚠️ Остальные блоки (roomsList / calendar / mobile button)
-      // требуют ОТДЕЛЬНЫЕ container id на странице.
-      // Если хочешь их тоже — добавь под них отдельные div с id и раскомментируй.
-      //
-      // window.HotelWidget.add({
-      //   type: "roomsList",
-      //   appearance: { container: "rooms-list-container" },
-      // });
-      //
-      // window.HotelWidget.add({
-      //   type: "availabilityCalendar",
-      //   months: 2,
-      //   appearance: { container: "availability-calendar-container" },
-      // });
-      //
-      // window.HotelWidget.add({
-      //   type: "showCheckAvailabilityButtonForMobileDevices",
-      //   appearance: { container: "mobile-button-container" },
-      // });
+      if (!window[FLAG_ADDED]) {
+        window.HotelWidget.add({
+          type: "bookingForm",
+          inline: true,
+          appearance: { container: "hotel-widget-container" },
+        });
+        window[FLAG_ADDED] = true;
+      }
     };
 
+    const existing = document.getElementById(SCRIPT_ID);
     if (existing) {
-      // Скрипт уже есть — просто инициализируем (если еще не успел)
-      if (window.HotelWidget) initWidget();
-      else existing.addEventListener("load", initWidget, { once: true });
+      if (window.HotelWidget) initAndAdd();
+      else existing.addEventListener("load", initAndAdd, { once: true });
       return;
     }
 
@@ -63,8 +45,7 @@ export default function RestWidget() {
     s.id = SCRIPT_ID;
     s.src = "https://bookonline24.ru/widget.js";
     s.async = true;
-    s.onload = initWidget;
-
+    s.onload = initAndAdd;
     document.body.appendChild(s);
   }, []);
 
