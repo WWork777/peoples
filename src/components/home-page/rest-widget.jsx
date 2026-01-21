@@ -4,40 +4,54 @@ import { useEffect } from "react";
 
 export default function RestWidget() {
   useEffect(() => {
-    const SCRIPT_ID = "kontur-hotel-widget";
-    const FLAG_INIT = "__KONTUR_WIDGET_INIT__";
-    const FLAG_ADDED = "__KONTUR_WIDGET_ADDED__";
+    const SCRIPT_ID = "bookonline24-widget-script";
 
-    const initAndAdd = () => {
+    const run = () => {
       if (!window.HotelWidget) return;
 
-      if (!window[FLAG_INIT]) {
+      // чтобы не инициализировать повторно
+      if (!window.__konturWidgetInited) {
         window.HotelWidget.init({
-          hotelId: "ВАШ_HOTEL_ID_С_РАБОЧЕГО_САЙТА",
+          hotelId: "a032e796-375f-4350-b834-759226169822",
           version: "2",
           baseUrl: "https://bookonline24.ru",
+          theme: {
+            common: {
+              buttons: {
+                primary: {
+                  bg: "#114734",
+                  borderColor: "#114734",
+                  border: "#114734",
+                  textColor: "#fff",
+                },
+                secondary: { bg: "#f5f9ba" },
+              },
+            },
+          },
           hooks: {
-            onError: (e) => console.error("Kontur widget onError:", e),
-            onInit: () => console.log("Kontur widget onInit"),
+            onError: (e) => console.error("onError", e),
+            onInit: () => console.log("onInit"),
+            onBooking: (v) => console.log("onBooking", v),
           },
         });
-        window[FLAG_INIT] = true;
+        window.__konturWidgetInited = true;
       }
 
-      if (!window[FLAG_ADDED]) {
+      // добавляем один раз
+      if (!window.__konturWidgetAdded) {
         window.HotelWidget.add({
           type: "bookingForm",
-          inline: true,
+          inline: false, // как у тебя "вертикальный блок"
           appearance: { container: "hotel-widget-container" },
         });
-        window[FLAG_ADDED] = true;
+        window.__konturWidgetAdded = true;
       }
     };
 
     const existing = document.getElementById(SCRIPT_ID);
     if (existing) {
-      if (window.HotelWidget) initAndAdd();
-      else existing.addEventListener("load", initAndAdd, { once: true });
+      if (window.HotelWidget) run();
+      else existing.addEventListener("load", run, { once: true });
       return;
     }
 
@@ -45,7 +59,7 @@ export default function RestWidget() {
     s.id = SCRIPT_ID;
     s.src = "https://bookonline24.ru/widget.js";
     s.async = true;
-    s.onload = initAndAdd;
+    s.onload = run;
     document.body.appendChild(s);
   }, []);
 
