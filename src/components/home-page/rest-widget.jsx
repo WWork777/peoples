@@ -110,8 +110,8 @@ export default function RestWidget() {
       </div>
 
       {/* Можно добавить и другие контейнеры если нужно */}
-      <div id="WidgetRoomsListId"></div>
-      <div id="WidgetVerticalBlockId"></div>
+      {/* <div id="WidgetRoomsListId"></div>
+      <div id="WidgetVerticalBlockId"></div> */}
     </section>
   );
 }
