@@ -90,7 +90,7 @@ export default function RestWidget() {
       </div>
 
       {/* ГОРИЗОНТАЛЬНЫЙ виджет бронирования */}
-      <div className="container max-w-6xl mx-auto px-4 mb-4">
+      <div className="container max-w-6xl mx-auto px-4 pb-4">
         <div
           id="WidgetHorizontalBlockId"
           className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
