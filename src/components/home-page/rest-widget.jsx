@@ -1,20 +1,17 @@
+// components/home-page/rest-widget.tsx
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function RestWidget() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    const SCRIPT_ID = "bookonline24-widget-script";
-
-    const run = () => {
-      if (!window.HotelWidget) return;
-
-      // чтобы не инициализировать повторно
-      if (!window.__konturWidgetInited) {
+    // Функция инициализации виджета (точная копия с действующего сайта)
+    const initWidget = () => {
+      if (window.HotelWidget) {
         window.HotelWidget.init({
           hotelId: "a032e796-375f-4350-b834-759226169822",
-          version: "2",
-          baseUrl: "https://bookonline24.ru",
           theme: {
             common: {
               buttons: {
@@ -24,60 +21,97 @@ export default function RestWidget() {
                   border: "#114734",
                   textColor: "#fff",
                 },
-                secondary: { bg: "#f5f9ba" },
+                secondary: {
+                  bg: "#f5f9ba",
+                },
               },
             },
           },
+          version: "2",
           hooks: {
-            onError: (e) => console.error("onError", e),
-            onInit: () => console.log("onInit"),
-            onBooking: (v) => console.log("onBooking", v),
+            onError: function (e) {
+              console.error("onError", e);
+            },
+            onInit: function () {
+              console.log("onInit");
+              setIsLoaded(true);
+            },
+            onBooking: function (v) {
+              console.log("onBooking", v);
+            },
           },
         });
-        window.__konturWidgetInited = true;
-      }
 
-      // добавляем один раз
-      if (!window.__konturWidgetAdded) {
+        // Добавляем только ГОРИЗОНТАЛЬНУЮ форму (как на действующем сайте)
         window.HotelWidget.add({
           type: "bookingForm",
-          inline: false, // как у тебя "вертикальный блок"
-          appearance: { container: "hotel-widget-container" },
+          inline: true, // ← ключевой параметр! horizontal = true
+          appearance: {
+            container: "WidgetHorizontalBlockId", // ← тот же ID
+          },
         });
-        window.__konturWidgetAdded = true;
+
+        // Можно добавить и другие виджеты если нужно
+        window.HotelWidget.add({
+          type: "roomsList",
+          appearance: {
+            container: "WidgetRoomsListId",
+          },
+        });
       }
     };
 
-    const existing = document.getElementById(SCRIPT_ID);
-    if (existing) {
-      if (window.HotelWidget) run();
-      else existing.addEventListener("load", run, { once: true });
-      return;
+    // Загружаем скрипт только если еще не загружен
+    if (!document.querySelector('script[src*="bookonline24.ru/widget.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://bookonline24.ru/widget.js";
+      script.async = true;
+      script.onload = initWidget;
+      document.body.appendChild(script);
+    } else if (window.HotelWidget) {
+      // Если скрипт уже загружен, сразу инициализируем
+      initWidget();
     }
 
-    const s = document.createElement("script");
-    s.id = SCRIPT_ID;
-    s.src = "https://bookonline24.ru/widget.js";
-    s.async = true;
-    s.onload = run;
-    document.body.appendChild(s);
+    // Очистка не требуется - скрипт оставляем глобально
   }, []);
 
   return (
     <section id="widget" className="cozy-rest px-3.75 bg-white">
       <div className="container max-w-7xl mx-auto pt-10 pb-6">
-        <h2 className="text-(--accent-color) text-[25px] sm:text-[32px] font-bold text-center leading-8">
-          У НАС УЖЕ ВСЕ ГОТОВО ДЛЯ <br /> ОТЛИЧНОГО УЮТНОГО <br /> ОТДЫХА
+        <h2 className="text-[#114734] text-[25px] sm:text-[32px] font-bold text-center leading-8">
+          У НАС УЖЕ ВСЕ ГОТОВО ДЛЯ <br />
+          ОТЛИЧНОГО УЮТНОГО <br />
+          ОТДЫХА
         </h2>
-        <h3 className="text-(--accent-color) font-medium text-center pt-6">
+        <h3 className="text-[#114734] font-medium text-center pt-6 text-lg">
           Не хватает только вас!
         </h3>
       </div>
 
-      <div
-        id="hotel-widget-container"
-        className="container max-w-7xl mx-auto"
-      />
+      {/* ГОРИЗОНТАЛЬНЫЙ виджет бронирования */}
+      <div className="container max-w-6xl mx-auto px-4">
+        <div
+          id="WidgetHorizontalBlockId"
+          className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        >
+          {/* Плейсхолдер пока грузится */}
+          {/* {!isLoaded && (
+            <div className="bg-gray-100 rounded-lg p-8 animate-pulse">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex-1 h-16 bg-gray-200 rounded"></div>
+                <div className="flex-1 h-16 bg-gray-200 rounded"></div>
+                <div className="flex-1 h-16 bg-gray-200 rounded"></div>
+                <div className="w-40 h-16 bg-gray-300 rounded"></div>
+              </div>
+            </div>
+          )} */}
+        </div>
+      </div>
+
+      {/* Можно добавить и другие контейнеры если нужно */}
+      <div id="WidgetRoomsListId"></div>
+      <div id="WidgetVerticalBlockId"></div>
     </section>
   );
 }

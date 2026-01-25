@@ -7,8 +7,6 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Люди в уюте",
-  description: "Ваш лучший отдых с видом на заснеженные вершины гор",
   icons: {
     icon: [
       { rel: "icon", type: "image/svg+xml", url: "/favicon/favicon.svg" },
