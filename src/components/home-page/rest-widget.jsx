@@ -93,7 +93,7 @@ export default function RestWidget() {
       <div className="container max-w-6xl mx-auto px-4">
         <div
           id="WidgetHorizontalBlockId"
-          className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"} mb-4`}
         >
           {/* Плейсхолдер пока грузится */}
           {/* {!isLoaded && (
