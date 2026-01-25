@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import YandexMetrika from "@/components/YandexMetrika/YandexMEtrika";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
     <html lang="ru">
       <body className={`${montserrat.variable} antialiased`}>
         <div className="max-w-480 mx-auto">{children}</div>
+        <YandexMetrika />
       </body>
     </html>
   );
