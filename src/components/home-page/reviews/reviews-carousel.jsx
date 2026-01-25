@@ -372,7 +372,7 @@ const ReviewsCarousel = () => {
 										{getPlatformIcon(review.platform)}
 										<div className='ms-3'>
 											<h5 className='mb-1 fw-bold text-lg'>{review.user}</h5>
-											<small className='text-gray-500 text-sm'>
+											<small>
 												{review.date} на {review.platform}
 											</small>
 										</div>

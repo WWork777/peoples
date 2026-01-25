@@ -111,13 +111,13 @@ export default function Contacts() {
 					</ul>
 					<ul className='pt-5 text-[12px]'>
 						<li className='pb-1'>
-							<Link href={'/privacy'}>Политика конфиденциальности</Link>
+							<Link href={'/politika'}>Политика конфиденциальности</Link>
 						</li>
 						<li className='pb-1 text-orange-500'>
-							<Link href={'/rules'}>Правила проживания</Link>
+							<Link href={'pravila'}>Правила проживания</Link>
 						</li>
 						<li>
-							<Link href={'/offer'}>Договор оферты</Link>
+							<Link href={'/oferta'}>Договор оферты</Link>
 						</li>
 					</ul>
 					<Link className='flex items-center gap-5 pt-10' href={'/'}>

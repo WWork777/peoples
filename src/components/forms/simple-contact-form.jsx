@@ -12,28 +12,75 @@ const SimpleContactForm = () => {
 	} = useForm()
 
 	const [isSuccess, setIsSuccess] = useState(false)
+	const [submitError, setSubmitError] = useState('')
 
 	const onSubmit = async data => {
-		console.log('Данные формы:', data)
+		// Очищаем предыдущие ошибки
+		setSubmitError('')
 
-		// Эмуляция отправки
-		await new Promise(resolve => setTimeout(resolve, 1000))
+		try {
+			// Подготовка данных для отправки
+			const formData = {
+				name: data.name,
+				phone: data.phone,
+				email: '', // Пустое значение, как в оригинале
+				message: '', // Пустое значение, как в оригинале
+				formId: 'footer-form', // Идентификатор этой формы
+				timestamp: new Date().toISOString(),
+			}
 
-		// Показываем успешное сообщение
-		setIsSuccess(true)
+			// Отправка данных на API роут
+			const response = await fetch('/api/submit-form', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			})
 
-		// Сбрасываем форму
-		reset()
+			const result = await response.json()
 
-		// Скрываем сообщение через 3 секунды
-		setTimeout(() => setIsSuccess(false), 3000)
+			if (response.ok && result.success) {
+				// Успешная отправка
+				console.log('✅ Заявка отправлена:', result)
+
+				// Показываем успешное сообщение
+				setIsSuccess(true)
+
+				// Сбрасываем форму
+				reset()
+
+				// Скрываем сообщение через 3 секунды
+				setTimeout(() => setIsSuccess(false), 3000)
+			} else {
+				// Обработка ошибки от сервера
+				const errorMessage =
+					result.error || result.message || 'Ошибка при отправке заявки'
+				console.error('❌ Ошибка отправки:', errorMessage)
+				setSubmitError(errorMessage)
+			}
+			reset()
+			setTimeout(() => setSubmitError(''), 3000)
+		} catch (error) {
+			// Обработка сетевых ошибок
+			console.error('❌ Ошибка сети:', error)
+			setSubmitError('Ошибка соединения с сервером. Попробуйте еще раз.')
+		}
 	}
 
 	return (
-		<div className='max-w-md  pl-0 p-6 rounded-xl '>
+		<div className='max-w-md pl-0 p-6 rounded-xl'>
+			{/* Сообщение об успехе */}
 			{isSuccess && (
 				<div className='mb-4 p-3 bg-green-100 text-green-700 rounded-lg'>
 					Спасибо! Мы скоро с вами свяжемся.
+				</div>
+			)}
+
+			{/* Сообщение об ошибке */}
+			{submitError && (
+				<div className='mb-4 p-3 bg-red-100 text-red-700 rounded-lg'>
+					{submitError}
 				</div>
 			)}
 
@@ -137,7 +184,7 @@ const SimpleContactForm = () => {
 				{/* Подпись под формой */}
 				<p className='text-sm text-white text-center'>
 					Нажимая кнопку, вы соглашаетесь с{' '}
-					<Link href={'/privacy'} className='text-orange-500'>
+					<Link href={'/politika'} className='text-orange-500'>
 						политикой конфиденциальности
 					</Link>
 				</p>
