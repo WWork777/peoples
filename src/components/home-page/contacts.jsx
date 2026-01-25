@@ -114,7 +114,7 @@ export default function Contacts() {
 							<Link href={'/politika'}>Политика конфиденциальности</Link>
 						</li>
 						<li className='pb-1 text-orange-500'>
-							<Link href={'pravila'}>Правила проживания</Link>
+							<Link href={'/pravila'}>Правила проживания</Link>
 						</li>
 						<li>
 							<Link href={'/oferta'}>Договор оферты</Link>
