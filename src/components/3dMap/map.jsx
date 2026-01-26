@@ -18,7 +18,7 @@ const houses = [
   {
     id: 1,
     name: "Двухэтажный дом с двумя спальнями",
-    coords: [300, 250], // [Y, X]
+    coords: [300, 250],
     boxSize: [150, 100],
     price: "от 14 000 руб.",
   },
@@ -50,24 +50,20 @@ const houses = [
     boxSize: [150, 100],
     price: "от 14 000 руб.",
   },
-  // {
-  //   id: 6,
-  //   name: "Двухэтажное шале",
-  //   coords: [300, 970],
-  //   boxSize: [150, 100],
-  //   price: "от 38 000 руб.",
-  // },
 ];
 
-function HousePopup({ position, name, onClose, price }) {
+function HousePopup({ position, name, price, onClose }) {
   return (
     <Popup position={position} onClose={onClose} autoClose>
-      <strong>{name}</strong>
+      <strong style={{ fontFamily: "montserrat" }}>{name}</strong>
       <br />
-      <strong>{price}</strong>
+      <strong style={{ fontFamily: "montserrat" }}>{price}</strong>
       <br />
       <button>
-        <Link href="/#widget" style={{ color: "white" }}>
+        <Link
+          href="/#widget"
+          style={{ color: "white", fontFamily: "montserrat" }}
+        >
           Забронировать
         </Link>
       </button>
@@ -102,10 +98,7 @@ export default function MapLeaf() {
 
     return {
       crs: L.CRS.Simple,
-      mapBounds: new L.LatLngBounds(
-        [0, 0], // top-left
-        [IMAGE_HEIGHT, IMAGE_WIDTH], // bottom-right
-      ),
+      mapBounds: new L.LatLngBounds([0, 0], [IMAGE_HEIGHT, IMAGE_WIDTH]),
     };
   }, []);
 
@@ -113,52 +106,57 @@ export default function MapLeaf() {
 
   return (
     <div className="leaflet-map">
-      <h2>РАСПОЛОЖЕНИЕ ДОМОВ</h2>
-      <h3>Выберите и забронируйте</h3>
+      <div className="map-wrapper">
+        {/* 🔥 Заголовок поверх карты */}
 
-      <MapContainer
-        crs={crs}
-        maxBounds={mapBounds}
-        maxBoundsViscosity={1}
-        scrollWheelZoom={false}
-        doubleClickZoom={false}
-        minZoom={isMobile ? -1 : 0} // 🔥 ВАЖНО
-        maxZoom={1}
-        className="map"
-      >
-        <FitImageBounds bounds={mapBounds} />
-        <ImageOverlay url="/map.jpg" bounds={mapBounds} />
+        <MapContainer
+          crs={crs}
+          maxBounds={mapBounds}
+          maxBoundsViscosity={1}
+          scrollWheelZoom={false}
+          doubleClickZoom={false}
+          minZoom={isMobile ? -1 : 0}
+          maxZoom={1}
+          className="map"
+        >
+          <div className="map-title">
+            <h2>РАСПОЛОЖЕНИЕ ДОМОВ</h2>
+            <h3>Выберите и забронируйте</h3>
+          </div>
+          <FitImageBounds bounds={mapBounds} />
+          <ImageOverlay url="/map.jpg" bounds={mapBounds} />
 
-        {houses.map((house) => {
-          const [h, w] = house.boxSize;
+          {houses.map((house) => {
+            const [h, w] = house.boxSize;
 
-          const rectBounds = [
-            [house.coords[0] - h / 2, house.coords[1] - w / 2],
-            [house.coords[0] + h / 2, house.coords[1] + w / 2],
-          ];
+            const rectBounds = [
+              [house.coords[0] - h / 2, house.coords[1] - w / 2],
+              [house.coords[0] + h / 2, house.coords[1] + w / 2],
+            ];
 
-          return (
-            <React.Fragment key={house.id}>
-              <Rectangle
-                bounds={rectBounds}
-                pathOptions={{ color: "#70c3d6", weight: 1.5 }}
-                eventHandlers={{
-                  click: () => setActivePopup(house.id),
-                }}
-              />
-
-              {activePopup === house.id && (
-                <HousePopup
-                  position={house.coords}
-                  name={house.name}
-                  price={house.price}
-                  onClose={() => setActivePopup(null)}
+            return (
+              <React.Fragment key={house.id}>
+                <Rectangle
+                  bounds={rectBounds}
+                  pathOptions={{ color: "#70c3d6", weight: 1.5 }}
+                  eventHandlers={{
+                    click: () => setActivePopup(house.id),
+                  }}
                 />
-              )}
-            </React.Fragment>
-          );
-        })}
-      </MapContainer>
+
+                {activePopup === house.id && (
+                  <HousePopup
+                    position={house.coords}
+                    name={house.name}
+                    price={house.price}
+                    onClose={() => setActivePopup(null)}
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </MapContainer>
+      </div>
     </div>
   );
 }

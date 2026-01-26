@@ -9,6 +9,17 @@ export default function Hero() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  const scrollToId = (id) => {
+    closeMenu();
+
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // ждём закрытие меню
+  };
+
   const menuLinks = [
     {
       title: "ДОМА И ЦЕНЫ",
@@ -176,7 +187,7 @@ export default function Hero() {
         <div className="absolute inset-0 w-full bg-black/40 z-10">
           <div className="container max-w-7xl mx-auto h-full px-3.75">
             {/* Основной header в hero секции */}
-            <header className="flex justify-between items-center pt-10">
+            <header className="flex justify-between items-center pt-5">
               <Link className="flex items-center gap-5" href={"/"}>
                 <img src="/images/logo/logo.webp" alt="logotype" />
                 <span>
@@ -228,11 +239,11 @@ export default function Hero() {
               </button>
             </header>
             <div className="flex">
-              <div className="w-full md:w-2/3 pt-[15%] md:pt-[20%] flex flex-col justify-center gap-20">
-                <h1 className="text-[42px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-tight md:leading-16">
+              <div className="w-full md:w-2/3 pt-[15%] md:pt-[20%] flex flex-col justify-space gap-16">
+                <h1 className="text-[34px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-tight md:leading-16">
                   Гостевой комплекс <br /> «Люди в уюте»
                 </h1>
-                <h2 className="text-xl sm:text-[24px]  leading-relaxed md:leading-8">
+                <h2 className="text-[20px] sm:text-[24px]  leading-relaxed md:leading-8">
                   Ваш лучший отдых с видом <br /> на заснеженные вершины гор
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-6 mx-auto md:mx-0">
@@ -244,12 +255,12 @@ export default function Hero() {
                   </Link>
 
                   {/* Смотреть даты */}
-                  <Link
-                    href={"/#widget"}
+                  <button
+                    onClick={() => scrollToId("widget")}
                     className="text-center border border-white text-white py-3 px-8 md:px-16 font-medium rounded-[30px] w-[320px] transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
                   >
                     Смотреть даты
-                  </Link>
+                  </button>
                 </div>
 
                 <div className=" flex items-end justify-center gap-10 md:hidden iphoneSe-hidden">
@@ -360,15 +371,6 @@ export default function Hero() {
           ))}
 
           {/* Кнопка бронирования в меню */}
-          <Link href={"/#widget"}>
-            {" "}
-            <button
-              onClick={closeMenu}
-              className="mt-8 bg-(--accent-color) text-white py-3 px-8 font-medium rounded-[30px] hover:opacity-90 transition-opacity"
-            >
-              Забронировать
-            </button>
-          </Link>
         </div>
 
         {/* CSS анимации */}
