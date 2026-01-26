@@ -9,6 +9,7 @@ import RestWidget from "@/components/home-page/rest-widget";
 import Reviews from "@/components/home-page/reviews/reviews";
 import { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
+import Map from "@/components/3dMap";
 
 export const metadata = {
   title:
@@ -66,6 +67,7 @@ export default function Home() {
     <>
       <JsonLd />
       <Hero />
+      <Map />
       <Atmosphere />
       <RestWidget />
       <Promotion />
