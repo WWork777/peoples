@@ -244,10 +244,11 @@ export default function Hero() {
                   </Link>
 
                   {/* Смотреть даты */}
-                  <Link href={"/#widget"}>
-                    <button className="border border-white text-white py-3 px-8 md:px-16 font-medium rounded-[30px] w-[320px] transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
-                      Смотреть даты
-                    </button>
+                  <Link
+                    href={"/#widget"}
+                    className="text-center border border-white text-white py-3 px-8 md:px-16 font-medium rounded-[30px] w-[320px] transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+                  >
+                    Смотреть даты
                   </Link>
                 </div>
 
