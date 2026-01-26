@@ -67,9 +67,10 @@ export default function Home() {
     <>
       <JsonLd />
       <Hero />
-      <Map />
+
       <Atmosphere />
       <RestWidget />
+      <Map />
       <Promotion />
       <AdditionalServices />
       <Gallery />
