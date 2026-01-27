@@ -326,7 +326,7 @@ const ReviewsCarousel = () => {
 			<div className='header-section flex justify-between items-center mb-6'>
 				<div className='container filter-buttons flex items-center'>
 					<button
-						className={`btn btn-sm me-2 ${
+						className={`btn btn-sm me-1 ${
 							activeFilter === '2Gis' ? 'btn-primary' : 'btn-outline-primary'
 						}`}
 						onClick={() => handleFilter('2Gis')}
@@ -335,7 +335,7 @@ const ReviewsCarousel = () => {
 					</button>
 
 					<button
-						className={`btn btn-sm ${
+						className={`btn btn-sm me-1 ${
 							activeFilter === 'Яндекс' ? 'btn-primary' : 'btn-outline-primary'
 						}`}
 						onClick={() => handleFilter('Яндекс')}
@@ -343,7 +343,7 @@ const ReviewsCarousel = () => {
 						Яндекс: 5.0
 					</button>
 					<button
-						className={`btn btn-sm me-2 ${
+						className={`btn btn-sm  ${
 							activeFilter === 'Авито' ? 'btn-primary' : 'btn-outline-primary'
 						}`}
 						onClick={() => handleFilter('Авито')}
