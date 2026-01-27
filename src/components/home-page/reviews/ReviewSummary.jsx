@@ -86,15 +86,6 @@ const ReviewsRow = () => {
 	const reviewsData = [
 		{
 			title: 'Люди в уюте',
-			platform: 'Авито',
-			rating: 5.0,
-			reviews: 1,
-			scores: 1,
-			secondaryAction: 'Оставить отзыв',
-			link: 'https://www.avito.ru/brands/i332109824/all/doma_dachi_kottedzhi?src=search_seller_info&iid=4605978509&item_type=str_trx&sellerId=860fc367c85345dbbf834bcecbda937c', // Ссылка для Авито, заменить на актуальную
-		},
-		{
-			title: 'Люди в уюте',
 			platform: '2ГИС',
 			rating: 5.0,
 			reviews: 66,
@@ -110,6 +101,15 @@ const ReviewsRow = () => {
 			scores: 48,
 			secondaryAction: 'Оставить отзыв',
 			link: 'https://yandex.ru/maps/org/lyudi_v_uyute/26931269781/?ll=87.982706%2C52.951912&z=17.05',
+		},
+		{
+			title: 'Люди в уюте',
+			platform: 'Авито',
+			rating: 5.0,
+			reviews: 1,
+			scores: 1,
+			secondaryAction: 'Оставить отзыв',
+			link: 'https://www.avito.ru/brands/i332109824/all/doma_dachi_kottedzhi?src=search_seller_info&iid=4605978509&item_type=str_trx&sellerId=860fc367c85345dbbf834bcecbda937c', // Ссылка для Авито, заменить на актуальную
 		},
 	]
 

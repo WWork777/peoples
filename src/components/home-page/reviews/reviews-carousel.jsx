@@ -295,10 +295,10 @@ const ReviewsCarousel = () => {
 		modules: [Autoplay, Navigation],
 		spaceBetween: 20,
 		speed: 500,
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: false,
-		},
+		// autoplay: {
+		// 	delay: 4000,
+		// 	disableOnInteraction: false,
+		// },
 		navigation: false,
 		breakpoints: {
 			320: {
@@ -373,7 +373,7 @@ const ReviewsCarousel = () => {
 										<div className='ms-3'>
 											<h5 className='mb-1 fw-bold text-lg'>{review.user}</h5>
 											<small>
-												{review.date} на {review.platform}
+												{review.date} на {review.platform.toUpperCase()}
 											</small>
 										</div>
 									</div>
