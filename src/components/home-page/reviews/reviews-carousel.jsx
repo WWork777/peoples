@@ -327,15 +327,6 @@ const ReviewsCarousel = () => {
 				<div className='container filter-buttons flex items-center'>
 					<button
 						className={`btn btn-sm me-2 ${
-							activeFilter === 'Авито' ? 'btn-primary' : 'btn-outline-primary'
-						}`}
-						onClick={() => handleFilter('Авито')}
-					>
-						Авито: 5.0
-					</button>
-
-					<button
-						className={`btn btn-sm me-2 ${
 							activeFilter === '2Gis' ? 'btn-primary' : 'btn-outline-primary'
 						}`}
 						onClick={() => handleFilter('2Gis')}
@@ -350,6 +341,14 @@ const ReviewsCarousel = () => {
 						onClick={() => handleFilter('Яндекс')}
 					>
 						Яндекс: 5.0
+					</button>
+					<button
+						className={`btn btn-sm me-2 ${
+							activeFilter === 'Авито' ? 'btn-primary' : 'btn-outline-primary'
+						}`}
+						onClick={() => handleFilter('Авито')}
+					>
+						Авито: 5.0
 					</button>
 				</div>
 			</div>
