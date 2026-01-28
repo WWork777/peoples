@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 
 export default function Promotion() {
 	const promo = [
@@ -35,12 +34,12 @@ export default function Promotion() {
 	return (
 		<section className='promotion bg-background'>
 			<div className='container max-w-7xl mx-auto px-3.75'>
-				<div className='py-10'>
+				{/* <div className='py-10'>
 					<div className='max-w-300 min-h-56 mx-auto rounded-3xl bg-[url("/images/promotion/promo_bg_mobile.webp")]  sm:bg-[url("/images/promotion/promo_bg.png")] bg-cover sm:bg-center bg-no-repeat relative overflow-hidden'>
-						{/* Оверлей с полупрозрачностью */}
+			
 						<div className='absolute inset-0 bg-black/20'></div>
 
-						{/* Контент поверх оверлея */}
+				
 						<div className='relative z-10 h-full flex flex-col p-8'>
 							<div className='w-full md:w-1/2'>
 								<span className='text-[22px] md:text-[32px] md:leading-10 font-bold'>
@@ -67,7 +66,7 @@ export default function Promotion() {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 				<div className='py-10 max-w-300 mx-auto'>
 					<h2 className='text-(--accent-color) text-[25px] sm:text-[32px] font-bold text-right'>
 						НАШИ АКЦИИ

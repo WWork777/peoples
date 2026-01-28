@@ -1,6 +1,6 @@
 export default function OfferPage() {
 	return (
-		<section className='offer bg-background py-12 mt-10'>
+		<section className='offer bg-[url("/images/contacts/policy.png")]  py-12 mt-10'>
 			<div className='container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
 				<h1 className=' text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-8'>
 					Договор оферты

@@ -53,7 +53,7 @@ export default function RulesContent() {
 		},
 	]
 	return (
-		<section className='rules-content bg-background px-3.75 mt-10'>
+		<section className='rules-content bg-[url("/images/contacts/policy.png")]  px-3.75 mt-10'>
 			<div className='container max-w-7xl mx-auto py-10 '>
 				<h2 className='text-(--accent-color) text-[25px] sm:text-[32px] font-bold text-center'>
 					ПРАВИЛА ПРОЖИВАНИЯ
