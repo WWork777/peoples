@@ -47,6 +47,16 @@ export async function POST(request) {
 						timestamp,
 					},
 				},
+				'hero-form': {
+					dataToSend: {
+						name,
+						phone,
+						email,
+						message,
+						formId,
+						timestamp,
+					},
+				},
 				'transfer-page-modal': {
 					dataToSend: {
 						name,

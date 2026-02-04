@@ -145,6 +145,15 @@ export default function Header() {
 							>
 								<img src='/images/socials/wa.webp' alt='wa' />
 							</a>
+							<a
+								className='w-8'
+								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Напишите нам в Max'
+							>
+								<img src='/icons/max.svg' alt='max' />
+							</a>
 						</div>
 						<button
 							onClick={toggleMenu}
@@ -200,6 +209,15 @@ export default function Header() {
 							aria-label='Напишите нам в WhatsApp'
 						>
 							<img src='/images/socials/wa.webp' alt='wa' />
+						</a>
+						<a
+							className='w-8'
+							href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='Напишите нам в Max'
+						>
+							<img src='/icons/max.svg' alt='max' />
 						</a>
 					</div>
 					<button

@@ -70,6 +70,22 @@ export default function Contacts() {
 						</li>
 						<li className='inline-block'>
 							<a
+								className='w-8 hover:opacity-80 transition-opacity block'
+								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Напишите нам в Max'
+							>
+								<img
+									src='/icons/max.svg'
+									alt='Max'
+									loading='lazy'
+									className='block w-full h-auto'
+								/>
+							</a>
+						</li>
+						<li className='inline-block'>
+							<a
 								className='w-19 hover:opacity-80 transition-opacity block'
 								href='https://2gis.ru/sheregesh/firm/70000001094596851?m=87.98269%2C52.951922%2F16&utm_source=widget_firm'
 								target='_blank'

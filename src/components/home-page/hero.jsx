@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
+import FloatingContactButton from "./floating-contact-button";
+import HeroContactForm from "./hero-contact-form";
 
 export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -156,6 +158,15 @@ export default function Hero() {
               >
                 <img src="/images/socials/wa.webp" alt="wa" />
               </a>
+              <a
+                className="w-8"
+                href="https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Напишите нам в Max"
+              >
+                <img src="/icons/max.svg" alt="max" />
+              </a>
             </div>
             <button
               onClick={toggleMenu}
@@ -172,7 +183,7 @@ export default function Hero() {
         </div>
       </header>
 
-      <section className="hero h-screen w-full relative overflow-hidden">
+      <section className="hero min-h-[150vh] sm:min-h-[135vh] md:min-h-[110vh] lg:min-h-screen w-full relative overflow-hidden">
         <video
           autoPlay
           loop
@@ -185,7 +196,7 @@ export default function Hero() {
           Ваш браузер не поддерживает видео.
         </video>
         <div className="absolute inset-0 w-full bg-black/40 z-10">
-          <div className="container max-w-7xl mx-auto h-full px-3.75">
+          <div className="container max-w-7xl mx-auto min-h-[150vh] sm:min-h-[135vh] md:min-h-[110vh] lg:min-h-screen px-3.75 py-5 md:py-0">
             {/* Основной header в hero секции */}
             <header className="flex justify-between items-center pt-5">
               <Link className="flex items-center gap-5" href={"/"}>
@@ -225,6 +236,15 @@ export default function Hero() {
                 >
                   <img src="/images/socials/wa.webp" alt="wa" />
                 </a>
+                <a
+                  className="w-8"
+                  href="https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Напишите нам в Max"
+                >
+                  <img src="/icons/max.svg" alt="max" />
+                </a>
               </div>
               <button
                 onClick={toggleMenu}
@@ -238,58 +258,59 @@ export default function Hero() {
                 )}
               </button>
             </header>
-            <div className="flex">
-              <div className="w-full md:w-2/3 pt-[15%] md:pt-[20%] flex flex-col justify-space gap-16">
+            <div className="flex flex-col lg:flex-row">
+              <div className="w-full lg:w-2/3 pt-[6%] sm:pt-[8%] md:pt-[12%] lg:pt-[20%] flex flex-col justify-start gap-4 sm:gap-6 md:gap-10 lg:gap-16 pb-2 sm:pb-3 md:pb-0">
                 <h1 className="text-[34px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-tight md:leading-16">
                   Гостевой комплекс <br /> «Люди в уюте»
                 </h1>
-                <h2 className="text-[20px] sm:text-[24px]  leading-relaxed md:leading-8">
+                <h2 className="text-[20px] sm:text-[24px] leading-relaxed md:leading-8">
                   Ваш лучший отдых с видом <br /> на заснеженные вершины гор
                 </h2>
-                <div className="flex flex-col sm:flex-row gap-6 mx-auto md:mx-0">
-                  {/* Забронировать */}
-                  <Link href={"tel:+7 (923) 603-30-30"}>
-                    <button className="bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] w-[320px] transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
-                      Забронировать
+                <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6 mx-auto md:mx-0">
+                    {/* Забронировать */}
+                    <Link href={"tel:+7 (923) 603-30-30"}>
+                      <button className="bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] w-full sm:w-[320px] transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
+                        Забронировать
+                      </button>
+                    </Link>
+
+                    {/* Смотреть даты */}
+                    <button
+                      onClick={() => scrollToId("widget")}
+                      className="text-center border border-white text-white py-3 px-8 md:px-16 font-medium rounded-[30px] w-full sm:w-[320px] transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+                    >
+                      Смотреть даты
                     </button>
-                  </Link>
-
-                  {/* Смотреть даты */}
-                  <button
-                    onClick={() => scrollToId("widget")}
-                    className="text-center border border-white text-white py-3 px-8 md:px-16 font-medium rounded-[30px] w-[320px] transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
-                  >
-                    Смотреть даты
-                  </button>
-                </div>
-
-                <div className=" flex items-end justify-center gap-10 md:hidden iphoneSe-hidden">
-                  <img
-                    className="w-20"
-                    src="/images/rate/Group_69.svg"
-                    alt="Group_69.svg"
-                  />
-                  <img
-                    className="w-20"
-                    src="/images/rate/Group_66.svg"
-                    alt="Group_66.svg"
-                  />
+                  </div>
+                  
+                  {/* Иконки рейтинга под кнопкой, выровнены по левому краю (начало текста) */}
+                  <div className="flex items-end gap-8 lg:gap-10">
+                    <img
+                      className="w-16 sm:w-20"
+                      src="/images/rate/Group_69.svg"
+                      alt="Group_69.svg"
+                    />
+                    <img
+                      className="w-16 sm:w-20"
+                      src="/images/rate/Group_66.svg"
+                      alt="Group_66.svg"
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="hidden md:block w-1/3 relative">
-                <div className="absolute bottom-0  left-[50%] -translate-x-1/2 flex items-end gap-8 lg:gap-10">
-                  <img
-                    className="w-20"
-                    src="/images/rate/Group_69.svg"
-                    alt="Group_69.svg"
-                  />
-                  <img
-                    className="w-20"
-                    src="/images/rate/Group_66.svg"
-                    alt="Group_66.svg"
-                  />
-                </div>
+              {/* Форма на десктопе и планшетах */}
+              <div className="hidden lg:flex flex-1 relative flex-col items-center justify-center pt-[15%] lg:pt-[20%] px-4 xl:px-0">
+                <HeroContactForm />
               </div>
+              {/* Форма на планшетах (768px - 1024px) */}
+              <div className="hidden md:flex lg:hidden w-full justify-center pt-6 pb-12 px-4">
+                <HeroContactForm />
+              </div>
+            </div>
+            {/* Форма на мобильных устройствах */}
+            <div className="md:hidden px-3 sm:px-4 pb-6 sm:pb-8 pt-2 sm:pt-4">
+              <HeroContactForm />
             </div>
           </div>
         </div>
@@ -385,8 +406,22 @@ export default function Hero() {
               transform: translateX(0);
             }
           }
+
+          /* Кастомный брейкпоинт для iPhone 12 Pro (390px - 431px) */
+          @media (min-width: 390px) and (max-width: 431px) {
+            .hero {
+              min-height: 120vh !important;
+            }
+            
+            .hero .container {
+              min-height: 120vh !important;
+            }
+          }
         `}</style>
       </section>
+
+      {/* Плавающая кнопка "Свяжитесь с нами" */}
+      <FloatingContactButton />
     </>
   );
 }
