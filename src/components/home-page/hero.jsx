@@ -183,7 +183,7 @@ export default function Hero() {
         </div>
       </header>
 
-      <section className="hero min-h-[150vh] sm:min-h-[135vh] md:min-h-[110vh] lg:min-h-screen w-full relative overflow-hidden">
+      <section className="hero min-h-[120vh] sm:min-h-[120vh] md:min-h-[120vh] lg:min-h-screen w-full relative overflow-hidden">
         <video
           autoPlay
           loop
@@ -196,9 +196,9 @@ export default function Hero() {
           Ваш браузер не поддерживает видео.
         </video>
         <div className="absolute inset-0 w-full bg-black/40 z-10">
-          <div className="container max-w-7xl mx-auto min-h-[150vh] sm:min-h-[135vh] md:min-h-[110vh] lg:min-h-screen px-3.75 py-5 md:py-0">
+          <div className="container max-w-7xl mx-auto min-h-[120vh] sm:min-h-[120vh] md:min-h-[120vh] lg:min-h-screen px-3.75 py-5 md:py-0">
             {/* Основной header в hero секции */}
-            <header className="flex justify-between items-center pt-5">
+            <header className="flex justify-between items-center pt-1 sm:pt-5">
               <Link className="flex items-center gap-5" href={"/"}>
                 <img src="/images/logo/logo.webp" alt="logotype" />
                 <span>
@@ -258,7 +258,45 @@ export default function Hero() {
                 )}
               </button>
             </header>
-            <div className="flex flex-col lg:flex-row">
+
+            {/* Контейнер для мобильной версии */}
+            <div className="md:hidden">
+              {/* Текст по центру на мобильных */}
+              <div className="text-center pt-[8%] sm:pt-[12%] pb-6">
+                <h1 className="text-[34px] sm:text-[48px] leading-tight mb-4">
+                  Гостевой комплекс <br /> «Люди в уюте»
+                </h1>
+                <h2 className="text-[20px] sm:text-[24px] leading-relaxed text-white/90">
+                  Ваш лучший отдых с видом <br /> на заснеженные вершины гор
+                </h2>
+              </div>
+
+              {/* Форма на мобильных устройствах */}
+              <div className="px-1 pb-6">
+                <HeroContactForm />
+              </div>
+
+              {/* Кнопки под формой на мобильных */}
+              <div className="flex flex-col gap-4 px-1">
+                {/* Забронировать */}
+                <Link href={"tel:+7 (923) 603-30-30"} className="w-full">
+                  <button className="bg-(--accent-color) py-3 px-8 font-medium rounded-[30px] w-full transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
+                    Забронировать
+                  </button>
+                </Link>
+
+                {/* Смотреть даты */}
+                <button
+                  onClick={() => scrollToId("widget")}
+                  className="text-center border border-white text-white py-3 px-8 font-medium rounded-[30px] w-full transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+                >
+                  Смотреть даты
+                </button>
+              </div>
+            </div>
+
+            {/* Десктопная и планшетная версия */}
+            <div className="hidden md:flex flex-col lg:flex-row">
               <div className="w-full lg:w-2/3 pt-[6%] sm:pt-[8%] md:pt-[12%] lg:pt-[20%] flex flex-col justify-start gap-4 sm:gap-6 md:gap-10 lg:gap-16 pb-2 sm:pb-3 md:pb-0">
                 <h1 className="text-[34px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-tight md:leading-16">
                   Гостевой комплекс <br /> «Люди в уюте»
@@ -267,9 +305,12 @@ export default function Hero() {
                   Ваш лучший отдых с видом <br /> на заснеженные вершины гор
                 </h2>
                 <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6 mx-auto md:mx-0">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6">
                     {/* Забронировать */}
-                    <Link href={"tel:+7 (923) 603-30-30"}>
+                    <Link
+                      href={"tel:+7 (923) 603-30-30"}
+                      className="w-full sm:w-auto"
+                    >
                       <button className="bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] w-full sm:w-[320px] transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
                         Забронировать
                       </button>
@@ -307,10 +348,6 @@ export default function Hero() {
               <div className="hidden md:flex lg:hidden w-full justify-center pt-6 pb-12 px-4">
                 <HeroContactForm />
               </div>
-            </div>
-            {/* Форма на мобильных устройствах */}
-            <div className="md:hidden px-4 pb-6 pt-8">
-              <HeroContactForm />
             </div>
           </div>
         </div>
@@ -407,8 +444,18 @@ export default function Hero() {
             }
           }
 
-          /* Кастомный брейкпоинт для iPhone 12 Pro (390px - 431px) */
-          @media (min-width: 390px) and (max-width: 431px) {
+          @media (min-width: 389px) and (max-width: 431px) {
+            .hero {
+              min-height: 100vh !important;
+            }
+
+            .hero .container {
+              min-height: 100vh !important;
+            }
+          }
+
+          /* Кастомный брейкпоинт для iPhone 12 Pro (391px - 400px) */
+          @media (min-width: 391px) and (max-width: 400px) {
             .hero {
               min-height: 120vh !important;
             }
