@@ -285,7 +285,7 @@ export default function Hero() {
                   </div>
                   
                   {/* Иконки рейтинга под кнопкой, выровнены по левому краю (начало текста) */}
-                  <div className="flex items-end gap-8 lg:gap-10">
+                  <div className="hidden md:flex items-end gap-8 lg:gap-10">
                     <img
                       className="w-16 sm:w-20"
                       src="/images/rate/Group_69.svg"
@@ -300,7 +300,7 @@ export default function Hero() {
                 </div>
               </div>
               {/* Форма на десктопе и планшетах */}
-              <div className="hidden lg:flex flex-1 relative flex-col items-center justify-center pt-[15%] lg:pt-[20%] px-4 xl:px-0">
+              <div className="hidden lg:flex flex-1 relative flex-col items-center justify-center pt-[15%] lg:pt-[15%] px-4 xl:px-0">
                 <HeroContactForm />
               </div>
               {/* Форма на планшетах (768px - 1024px) */}
@@ -309,7 +309,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Форма на мобильных устройствах */}
-            <div className="md:hidden px-3 sm:px-4 pb-6 sm:pb-8 pt-2 sm:pt-4">
+            <div className="md:hidden px-3 sm:px-4 pb-6 sm:pb-8 pt-12 sm:pt-16">
               <HeroContactForm />
             </div>
           </div>
