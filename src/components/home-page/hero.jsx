@@ -283,7 +283,7 @@ export default function Hero() {
                       Смотреть даты
                     </button>
                   </div>
-                  
+
                   {/* Иконки рейтинга под кнопкой, выровнены по левому краю (начало текста) */}
                   <div className="hidden md:flex items-end gap-8 lg:gap-10">
                     <img
@@ -309,7 +309,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Форма на мобильных устройствах */}
-            <div className="md:hidden px-3 sm:px-4 pb-6 sm:pb-8 pt-12 sm:pt-16">
+            <div className="md:hidden px-4 pb-6 pt-8">
               <HeroContactForm />
             </div>
           </div>
@@ -412,7 +412,7 @@ export default function Hero() {
             .hero {
               min-height: 120vh !important;
             }
-            
+
             .hero .container {
               min-height: 120vh !important;
             }
