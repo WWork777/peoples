@@ -2,6 +2,7 @@ import Map from '@/components/3dMap'
 import AdditionalServices from '@/components/home-page/additional-services'
 import Atmosphere from '@/components/home-page/atmosphere'
 import Contacts from '@/components/home-page/contacts'
+import Dobro from '@/components/home-page/dobro'
 import Gallery from '@/components/home-page/gallery'
 import Hero from '@/components/home-page/hero'
 import Promotion from '@/components/home-page/promotion'
@@ -72,7 +73,7 @@ export default function Home() {
 			<AdditionalServices />
 			<Gallery />
 			<Reviews />
-			{/* <Dobro /> */}
+			<Dobro />
 			<Contacts />
 		</>
 	)
