@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Reviews from '../home-page/reviews/reviews'
+import ServicesForm from './services-form'
 
 function formatRuPhone(digits) {
 	const d = digits.replace(/\D/g, '').slice(0, 11)
@@ -537,6 +539,8 @@ export default function TransferPage() {
 					</div>
 				</div>
 			</div>
+			<ServicesForm />
+			<Reviews />
 
 			<OrderServiceModal
 				isOpen={isOpen}
