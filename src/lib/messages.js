@@ -170,6 +170,12 @@ export const generateFormMessage = formData => {
 		hasValue(fields.name) ? `👤 *Имя:* ${fields.name}` : null,
 		hasValue(fields.phone) ? `📞 *Телефон:* ${fields.phone}` : null,
 		hasValue(fields.email) ? `📧 *Email:* ${fields.email}` : null,
+		hasValue(fields.call)
+			? `📱 *Позвонить:* ${fields.call ? 'Да' : 'Нет'}`
+			: null,
+		hasValue(fields.write)
+			? `✉️ *Написать:* ${fields.write ? 'Да' : 'Нет'}`
+			: null,
 
 		// Тип услуги (только для трансфера)
 		serviceTypeText,

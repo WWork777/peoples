@@ -23,6 +23,8 @@ const SimpleContactForm = () => {
 			const formData = {
 				name: data.name,
 				phone: data.phone,
+				call: data.call,
+				write: data.write,
 				email: '', // Пустое значение, как в оригинале
 				message: '', // Пустое значение, как в оригинале
 				formId: 'footer-form', // Идентификатор этой формы
@@ -141,6 +143,28 @@ const SimpleContactForm = () => {
 					{errors.phone && (
 						<p className='mt-1 text-sm text-red-600'>{errors.phone.message}</p>
 					)}
+				</div>
+				<div className='pt-1'>
+					<label className=' pb-2 flex items-center space-x-2 cursor-pointer'>
+						<input
+							type='checkbox'
+							{...register('call', {})}
+							className=' h-4 w-4 rounded border-white/30 bg-white/10 text-accent focus:ring-accent focus:ring-offset-0'
+						/>
+						<span className='text-white/70 text-xs leading-tight'>
+							Позвоните мне
+						</span>
+					</label>
+					<label className='flex items-center space-x-2 cursor-pointer'>
+						<input
+							type='checkbox'
+							{...register('write', {})}
+							className=' h-4 w-4 rounded border-white/30 bg-white/10 text-accent focus:ring-accent focus:ring-offset-0'
+						/>
+						<span className='text-white/70 text-xs leading-tight'>
+							Напишите мне
+						</span>
+					</label>
 				</div>
 
 				{/* Кнопка отправки */}

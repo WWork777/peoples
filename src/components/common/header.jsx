@@ -138,7 +138,7 @@ export default function Header() {
 							</a>
 							<a
 								className='w-8'
-								href='https://wa.me/79991234567'
+								href='https://wa.me/9236303030'
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Напишите нам в WhatsApp'
@@ -202,8 +202,8 @@ export default function Header() {
 							<img src='/images/socials/tg.webp' alt='tg' />
 						</a>
 						<a
-							className='w-8'
-							href='https://wa.me/79991234567'
+							className='w-8  hidden lg:block'
+							href='https://wa.me/9236303030'
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Напишите нам в WhatsApp'
@@ -211,13 +211,15 @@ export default function Header() {
 							<img src='/images/socials/wa.webp' alt='wa' />
 						</a>
 						<a
-							className='w-8'
+							className=''
 							href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Напишите нам в Max'
 						>
-							<img src='/icons/max.svg' alt='max' />
+							<div className='w-9 h-9 rounded-full bg-transparent border-[3px] border-white flex items-center justify-center'>
+								<img src='/icons/max.svg' alt='max' width={18} height={18} />
+							</div>
 						</a>
 					</div>
 					<button
@@ -263,30 +265,62 @@ export default function Header() {
 					<div className='address text-base mb-4'>
 						пгт. Шерегеш, Звездная улица, 8
 					</div>
-					<div className='socials flex items-center gap-5'>
+					<div className='socials flex items-center gap-2'>
 						<a
-							className='w-8 hover:opacity-80 transition-opacity'
-							href='#'
+							className=' hover:opacity-80 transition-opacity'
+							href='https://m.vk.com/lyudivuyute'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							<img src='/images/socials/vk.png' alt='vk' />
+							<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
+								<img
+									src='/images/socials/vk.webp'
+									alt='vk'
+									className='w-[20px] h-[20px]'
+								/>
+							</div>
 						</a>
 						<a
-							className='w-8 hover:opacity-80 transition-opacity'
-							href='#'
+							className='hover:opacity-80 transition-opacity'
+							href='https://t.me/lyudivuyuteinfo'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							<img src='/images/socials/tg.png' alt='tg' />
+							<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
+								<img
+									src='/images/socials/tg.webp'
+									alt='tg'
+									className='w-[20px] h-[20px]'
+								/>
+							</div>
 						</a>
 						<a
-							className='w-8 hover:opacity-80 transition-opacity'
-							href='#'
+							className='hover:opacity-80 transition-opacity'
+							href='https://wa.me/9236033030'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							<img src='/images/socials/wa.png' alt='wa' />
+							<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
+								<img
+									src='/images/socials/wa.webp'
+									alt='wa'
+									className='w-[20px] h-[20px]'
+								/>
+							</div>
+						</a>
+						<a
+							className='hover:opacity-80 transition-opacity'
+							href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
+								<img
+									src='/icons/max.svg'
+									alt='ma'
+									className='w-[20px] h-[20px]'
+								/>
+							</div>
 						</a>
 					</div>
 				</div>

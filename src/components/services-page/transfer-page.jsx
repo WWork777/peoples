@@ -31,6 +31,8 @@ function OrderServiceModal({ isOpen, onClose, defaultService = 'transfer' }) {
 		name: '',
 		phone: '+7 ',
 		phoneDigits: '7',
+		call: true,
+		write: false,
 		transfer: false,
 		rent: false,
 	})
@@ -167,6 +169,8 @@ function OrderServiceModal({ isOpen, onClose, defaultService = 'transfer' }) {
 						? 'transfer_and_rent'
 						: 'transfer'
 					: 'rent',
+				call: form.call,
+				write: form.write,
 				formId: 'transfer-page-modal',
 				timestamp: new Date().toISOString(),
 			}
@@ -193,6 +197,8 @@ function OrderServiceModal({ isOpen, onClose, defaultService = 'transfer' }) {
 					name: '',
 					phone: '+7 ',
 					phoneDigits: '7',
+					call: false,
+					write: false,
 					transfer: false,
 					rent: false,
 				})
@@ -376,6 +382,31 @@ function OrderServiceModal({ isOpen, onClose, defaultService = 'transfer' }) {
 									Выберите хотя бы одну услугу
 								</p>
 							)}
+
+							<label className='flex items-center gap-2 text-black/80 mb-2'>
+								<input
+									type='checkbox'
+									checked={form.call}
+									onChange={update('call')}
+									className='h-5 w-5 accent-[#0E4B3B]'
+									disabled={isSubmitting}
+								/>
+								<span className={isSubmitting ? 'opacity-50' : ''}>
+									Позвоните мне
+								</span>
+							</label>
+							<label className='flex items-center gap-2 text-black/80 mb-2'>
+								<input
+									type='checkbox'
+									checked={form.write}
+									onChange={update('write')}
+									className='h-5 w-5 accent-[#0E4B3B]'
+									disabled={isSubmitting}
+								/>
+								<span className={isSubmitting ? 'opacity-50' : ''}>
+									Напишите мне
+								</span>
+							</label>
 
 							<label className='flex items-center gap-2 text-black/80 mb-2'>
 								<input

@@ -34,7 +34,16 @@ export default function ContactFormPage() {
 		phone: '+7 ',
 		phoneDigits: '7',
 		comment: '',
+		call: true,
+		write: false,
 	})
+	const update = key => e => {
+		const value =
+			e?.target?.type === 'checkbox' ? e.target.checked : e.target.value
+		setForm(p => ({ ...p, [key]: value }))
+		// Сбрасываем ошибки при изменении
+		if (submitError) setSubmitError('')
+	}
 
 	const [touched, setTouched] = useState({})
 	const [isSubmitting, setIsSubmitting] = useState(false)
@@ -93,6 +102,8 @@ export default function ContactFormPage() {
 				phone: form.phoneDigits,
 				email: form.email.trim(),
 				message: form.comment.trim(),
+				call: form.call,
+				write: form.write,
 				formId: 'contact-page-form',
 				timestamp: new Date().toISOString(),
 			}
@@ -230,6 +241,30 @@ export default function ContactFormPage() {
 							disabled={isSubmitting}
 						/>
 					</div>
+					<label className='flex items-center gap-2 text-black/80 mb-2'>
+						<input
+							type='checkbox'
+							checked={form.call ?? false}
+							onChange={update('call')}
+							className='h-5 w-5 accent-[#0E4B3B]'
+							disabled={isSubmitting}
+						/>
+						<span className={isSubmitting ? 'opacity-50' : ''}>
+							Позвоните мне
+						</span>
+					</label>
+					<label className='flex items-center gap-2 text-black/80 mb-2'>
+						<input
+							type='checkbox'
+							checked={form.write ?? false}
+							onChange={update('write')}
+							className='h-5 w-5 accent-[#0E4B3B]'
+							disabled={isSubmitting}
+						/>
+						<span className={isSubmitting ? 'opacity-50' : ''}>
+							Напишите мне
+						</span>
+					</label>
 
 					{/* Кнопка */}
 					<div className='flex justify-center'>

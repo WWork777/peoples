@@ -3,8 +3,17 @@
 import { generateFormMessage } from '../messages'
 
 export async function sendTelegramMessage(formData) {
-	const { name, phone, email, message, formId, timestamp, serviceType } =
-		formData
+	const {
+		name,
+		phone,
+		email,
+		message,
+		call,
+		write,
+		formId,
+		timestamp,
+		serviceType,
+	} = formData
 	const botToken = process.env.TELEGRAM_BOT_TOKEN
 	const chatId = process.env.TELEGRAM_CHAT_ID
 
@@ -20,6 +29,8 @@ export async function sendTelegramMessage(formData) {
 		phone,
 		email,
 		message,
+		call,
+		write,
 		formId,
 		timestamp,
 		serviceType, // Добавляем тип услуги

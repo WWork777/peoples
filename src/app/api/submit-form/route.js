@@ -7,7 +7,8 @@ export async function POST(request) {
 	try {
 		// 1. Получаем и валидируем данные формы
 		const formData = await request.json()
-		const { name, phone, email, message, formId, timestamp } = formData
+		const { name, phone, email, message, call, write, formId, timestamp } =
+			formData
 
 		// Проверка обязательных полей
 		const missingFields = []
@@ -32,6 +33,8 @@ export async function POST(request) {
 						name,
 						phone,
 						email,
+						call,
+						write,
 						message,
 						formId,
 						timestamp,
@@ -42,6 +45,8 @@ export async function POST(request) {
 						name,
 						phone,
 						email,
+						call,
+						write,
 						message,
 						formId,
 						timestamp,
@@ -53,6 +58,8 @@ export async function POST(request) {
 						phone,
 						email,
 						message,
+						call,
+						write,
 						formId,
 						timestamp,
 					},
@@ -63,6 +70,8 @@ export async function POST(request) {
 						phone,
 						email,
 						message,
+						call,
+						write,
 						formId,
 						timestamp,
 						serviceType: formData.serviceType, // Добавляем serviceType
