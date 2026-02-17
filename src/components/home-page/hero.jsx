@@ -569,11 +569,11 @@ export default function Hero() {
           /* Кастомный брейкпоинт для iPhone 12 Pro (391px - 400px) */
           @media (min-width: 390px) and (max-width: 400px) {
             .hero {
-              min-height: 100vh !important;
+              min-height: 110vh !important;
             }
 
             .hero .container {
-              min-height: 100vh !important;
+              min-height: 110vh !important;
             }
           }
 
