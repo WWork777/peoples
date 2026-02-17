@@ -556,7 +556,7 @@ export default function Hero() {
             }
           }
 
-          @media (min-width: 389px) and (max-width: 431px) {
+          @media (min-width: 400px) and (max-width: 431px) {
             .hero {
               min-height: 100vh !important;
             }
@@ -567,6 +567,25 @@ export default function Hero() {
           }
 
           /* Кастомный брейкпоинт для iPhone 12 Pro (391px - 400px) */
+          @media (min-width: 390px) and (max-width: 400px) {
+            .hero {
+              min-height: 100vh !important;
+            }
+
+            .hero .container {
+              min-height: 100vh !important;
+            }
+          }
+
+          @media (min-width: 374px) and (max-width: 389px) {
+            .hero {
+              min-height: 120vh !important;
+            }
+
+            .hero .container {
+              min-height: 120vh !important;
+            }
+          }
         `}</style>
       </section>
 
