@@ -22,7 +22,7 @@ export default function RestWidget() {
       setIsLoaded(false);
     };
 
-    // Функция инициализации виджета
+    // Функция инициализации виджета (только горизонтальная форма)
     const initWidget = () => {
       // Очищаем предыдущий виджет если был
       if (widgetInitialized.current) {
@@ -64,20 +64,12 @@ export default function RestWidget() {
             },
           });
 
-          // Добавляем горизонтальную форму
+          // Добавляем ТОЛЬКО горизонтальную форму
           window.HotelWidget.add({
             type: "bookingForm",
-            inline: true,
+            inline: true, // горизонтальная форма
             appearance: {
               container: "WidgetHorizontalBlockId",
-            },
-          });
-
-          // Добавляем список номеров
-          window.HotelWidget.add({
-            type: "roomsList",
-            appearance: {
-              container: "WidgetRoomsListId",
             },
           });
 
@@ -129,7 +121,7 @@ export default function RestWidget() {
         </h3>
       </div>
 
-      {/* ГОРИЗОНТАЛЬНЫЙ виджет бронирования */}
+      {/* ТОЛЬКО ГОРИЗОНТАЛЬНЫЙ виджет бронирования */}
       <div className="container max-w-6xl mx-auto px-4 pb-8">
         <div
           id="WidgetHorizontalBlockId"
@@ -149,28 +141,7 @@ export default function RestWidget() {
         </div>
       </div>
 
-      {/* Контейнер для списка номеров (опционально) */}
-      <div className="container max-w-6xl mx-auto px-4 pb-8">
-        <div
-          id="WidgetRoomsListId"
-          className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-        >
-          {!isLoaded && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="bg-gray-100 rounded-xl p-4 animate-pulse"
-                >
-                  <div className="h-40 bg-gray-200 rounded-lg mb-3"></div>
-                  <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      {/* Удаляем контейнер для списка номеров - он больше не нужен */}
     </section>
   );
 }
