@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import RestWidget from "@/components/home-page/rest-widget";
 
 export default function Booking() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -127,23 +128,8 @@ export default function Booking() {
               <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
                 Проверить наличие и забронировать
               </h2>
-              <div
-                id="WidgetHorizontalBlockId"
-                className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-              >
-                {/* Плейсхолдер загрузки */}
-                {!isLoaded && (
-                  <div className="bg-gray-50 rounded-xl p-6 animate-pulse">
-                    <div className="grid md:grid-cols-4 gap-4">
-                      <div className="h-12 bg-gray-200 rounded-lg"></div>
-                      <div className="h-12 bg-gray-200 rounded-lg"></div>
-                      <div className="h-12 bg-gray-200 rounded-lg"></div>
-                      <div className="h-12 bg-gray-300 rounded-lg"></div>
-                    </div>
-                  </div>
-                )}
-              </div>
             </div>
+            <RestWidget />
 
             {/* Список номеров/домов */}
             {/* <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
@@ -170,13 +156,6 @@ export default function Booking() {
                 )}
               </div> */}
             {/* </div> */}
-
-            {/* Информация о загрузке */}
-            {!isLoaded && (
-              <div className="text-center mt-8 text-gray-500">
-                Загружаем систему бронирования...
-              </div>
-            )}
           </div>
         </section>
 

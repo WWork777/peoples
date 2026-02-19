@@ -15,6 +15,21 @@ export default function RestWidget() {
       window.HotelWidget.init({
         hotelId: "a032e796-375f-4350-b834-759226169822",
         version: "2",
+        theme: {
+          common: {
+            buttons: {
+              primary: {
+                bg: "#114734",
+                borderColor: "#114734",
+                border: "#114734",
+                textColor: "#fff",
+              },
+              secondary: {
+                bg: "#f5f9ba",
+              },
+            },
+          },
+        },
       });
 
       window.HotelWidget.add({
