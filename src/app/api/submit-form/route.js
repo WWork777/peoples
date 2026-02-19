@@ -113,7 +113,7 @@ export async function POST(request) {
     console.log("Начинаем отправку заявки в Telegram...");
     console.log("Данные для отправки:", dataToSend);
 
-    // 3. Отправка в Telegram
+    // 3. Отправка в Telegram + MAX
     let telegramResult;
     try {
       telegramResult = await sendTelegramMessage(dataToSend);
