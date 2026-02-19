@@ -335,7 +335,7 @@ export default function Hero() {
               {/* Кнопки под формой на мобильных */}
               <div className="flex flex-col gap-4 px-1">
                 {/* Забронировать */}
-                <Link href={"tel:+7 (923) 603-30-30"} className="w-full">
+                <Link href={"/booking"} className="w-full">
                   <button className="bg-(--accent-color) py-3 px-8 font-medium rounded-[30px] w-full transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
                     Забронировать
                   </button>
@@ -363,10 +363,7 @@ export default function Hero() {
                 <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6">
                     {/* Забронировать */}
-                    <Link
-                      href={"tel:+7 (923) 603-30-30"}
-                      className="w-full sm:w-auto"
-                    >
+                    <Link href={"/booking"} className="w-full sm:w-auto">
                       <button className="bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] w-full sm:w-[320px] transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95">
                         Забронировать
                       </button>
