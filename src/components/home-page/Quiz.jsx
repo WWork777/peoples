@@ -450,23 +450,6 @@ export default function Quiz() {
                   отдыха в Шерегеше
                 </p>
 
-                {/* Преимущества
-                <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
-                  {[
-                    "🏔️ Вид на горы",
-                    "🔥 Своя баня",
-                    "🅿️ Парковка",
-                    "🌲 В лесу",
-                  ].map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-gray-50 rounded-xl p-2 text-sm text-gray-600"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div> */}
-
                 {/* Кнопка старта */}
                 <button
                   onClick={startQuiz}
@@ -707,25 +690,28 @@ export default function Quiz() {
               </div>
             )}
 
-            {/* STEP 5 */}
+            {/* STEP 5 - ИСПРАВЛЕН */}
             {step === 5 && (
               <div className="space-y-4 animate-fadeIn">
                 {[
                   {
                     key: "instructor",
                     label: "Инструктор",
+                    shortLabel: "Инструктор",
                     emoji: "🏂",
                     price: "+4 000 ₽",
                   },
                   {
                     key: "equipment",
                     label: "Аренда экипировки",
+                    shortLabel: "Экипировка",
                     emoji: "⛷️",
                     price: `+2 000 ₽ × ${form.guests} чел`,
                   },
                   {
                     key: "excursions",
                     label: "Экскурсии",
+                    shortLabel: "Экскурсии",
                     emoji: "🏔️",
                     price: `+2 500 ₽ × ${form.guests} чел`,
                   },
@@ -741,19 +727,27 @@ export default function Quiz() {
                         : "border-gray-100 bg-gray-50/50 hover:border-gray-200 hover:bg-gray-100/50"
                     }`}
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{service.emoji}</span>
-                        <span className="font-medium text-gray-900">
-                          {service.label}
-                        </span>
+                        <div className="flex flex-col items-start">
+                          <span className="font-medium text-gray-900 sm:hidden">
+                            {service.shortLabel}
+                          </span>
+                          <span className="font-medium text-gray-900 hidden sm:inline">
+                            {service.label}
+                          </span>
+                          <span className="text-xs text-gray-500 sm:hidden">
+                            {service.price}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-sm text-gray-500">
+                      <div className="flex items-center justify-between sm:justify-end gap-3">
+                        <span className="text-sm text-gray-500 hidden sm:inline">
                           {service.price}
                         </span>
                         <div
-                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
+                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all flex-shrink-0 ${
                             form[service.key]
                               ? "border-[#004530] bg-[#004530]"
                               : "border-gray-300"
@@ -903,7 +897,7 @@ export default function Quiz() {
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <input
                       type="checkbox"
-                      className="mt-1 w-4 h-4 rounded border-gray-300 text-[#004530] focus:ring-[#004530]/20 cursor-pointer"
+                      className="w-4 h-4 rounded border-gray-300 text-[#004530] focus:ring-[#004530]/20 cursor-pointer"
                     />
                     <span className="text-xs text-gray-600">
                       Я согласен с{" "}
