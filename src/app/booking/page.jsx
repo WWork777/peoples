@@ -128,8 +128,8 @@ export default function Booking() {
               <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
                 Проверить наличие и забронировать
               </h2>
+              <RestWidget />
             </div>
-            <RestWidget />
 
             {/* Список номеров/домов */}
             {/* <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
