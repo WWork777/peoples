@@ -9,53 +9,48 @@ export default function RestWidget() {
   const widgetInitialized = useRef(false);
   const pathname = usePathname();
   const containerRef = useRef(null);
+  const scriptLoaded = useRef(false);
 
   useEffect(() => {
-    // Функция очистки виджета
+    let mounted = true;
+    let initTimeout = null;
+
+    // Функция очистки виджета (безопасная)
     const cleanupWidget = () => {
       if (window.HotelWidget) {
         try {
-          // Пытаемся найти и удалить контейнер виджета
+          // Просто удаляем содержимое контейнера, не трогаем destroy
           const container = document.getElementById("WidgetHorizontalBlockId");
           if (container) {
-            container.innerHTML = ""; // Очищаем содержимое
+            container.innerHTML = "";
           }
-
-          // Если есть метод destroy, вызываем его
-          if (window.HotelWidget.destroy) {
-            window.HotelWidget.destroy();
-          }
-
-          console.log("Widget cleaned up");
+          console.log("Widget container cleaned");
         } catch (e) {
-          console.error("Error cleaning up widget:", e);
+          console.error("Error cleaning widget:", e);
         }
       }
       widgetInitialized.current = false;
-      setIsLoaded(false);
+      if (mounted) {
+        setIsLoaded(false);
+      }
     };
 
     // Функция инициализации виджета
     const initWidget = () => {
-      // Проверяем, что контейнер существует
+      if (!mounted) return;
+
       const container = document.getElementById("WidgetHorizontalBlockId");
       if (!container) {
-        console.log("Container not found, retrying...");
-        setTimeout(initWidget, 100); // Пробуем снова через 100ms
+        // Пробуем еще раз через небольшую задержку
+        initTimeout = setTimeout(initWidget, 50);
         return;
       }
 
-      // Очищаем контейнер перед инициализацией
+      // Очищаем контейнер
       container.innerHTML = "";
 
-      if (window.HotelWidget) {
+      if (window.HotelWidget && !widgetInitialized.current) {
         try {
-          // Сначала пробуем уничтожить предыдущий инстанс если есть
-          if (window.HotelWidget.destroy) {
-            window.HotelWidget.destroy();
-          }
-
-          // Инициализируем заново
           window.HotelWidget.init({
             hotelId: "a032e796-375f-4350-b834-759226169822",
             theme: {
@@ -67,9 +62,6 @@ export default function RestWidget() {
                     border: "#114734",
                     textColor: "#fff",
                   },
-                  secondary: {
-                    bg: "#f5f9ba",
-                  },
                 },
               },
             },
@@ -80,8 +72,10 @@ export default function RestWidget() {
               },
               onInit: function () {
                 console.log("onInit");
-                setIsLoaded(true);
-                widgetInitialized.current = true;
+                if (mounted) {
+                  setIsLoaded(true);
+                  widgetInitialized.current = true;
+                }
               },
               onBooking: function (v) {
                 console.log("onBooking", v);
@@ -107,53 +101,41 @@ export default function RestWidget() {
 
     // Загружаем скрипт если еще не загружен
     const loadScript = () => {
-      return new Promise((resolve, reject) => {
-        if (
-          !document.querySelector('script[src*="bookonline24.ru/widget.js"]')
-        ) {
-          const script = document.createElement("script");
-          script.src = "https://bookonline24.ru/widget.js";
-          script.async = true;
-          script.onload = () => {
-            console.log("Widget script loaded");
-            resolve();
-          };
-          script.onerror = (error) => {
-            console.error("Error loading widget script:", error);
-            reject(error);
-          };
-          document.body.appendChild(script);
-        } else {
-          // Скрипт уже загружен
-          resolve();
-        }
-      });
-    };
+      if (scriptLoaded.current) {
+        initWidget();
+        return;
+      }
 
-    // Основная функция инициализации
-    const initialize = async () => {
-      try {
-        // Очищаем предыдущее состояние
-        cleanupWidget();
-
-        // Загружаем скрипт
-        await loadScript();
-
-        // Даем время скрипту полностью загрузиться
-        setTimeout(() => {
+      if (!document.querySelector('script[src*="bookonline24.ru/widget.js"]')) {
+        const script = document.createElement("script");
+        script.src = "https://bookonline24.ru/widget.js";
+        script.async = true;
+        script.onload = () => {
+          console.log("Widget script loaded");
+          scriptLoaded.current = true;
           initWidget();
-        }, 100);
-      } catch (error) {
-        console.error("Failed to initialize widget:", error);
+        };
+        script.onerror = (error) => {
+          console.error("Error loading widget script:", error);
+        };
+        document.body.appendChild(script);
+      } else {
+        scriptLoaded.current = true;
+        initWidget();
       }
     };
 
     // Запускаем инициализацию
-    initialize();
+    cleanupWidget(); // Очищаем перед новой инициализацией
+    loadScript();
 
     // Очистка при размонтировании
     return () => {
-      cleanupWidget();
+      mounted = false;
+      if (initTimeout) {
+        clearTimeout(initTimeout);
+      }
+      // Не вызываем cleanupWidget здесь, чтобы избежать ошибок
     };
   }, [pathname]); // Перезапускаем при изменении пути
 
@@ -175,8 +157,8 @@ export default function RestWidget() {
         <div
           ref={containerRef}
           id="WidgetHorizontalBlockId"
-          key={pathname} // Принудительно пересоздаем при смене пути
-          className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          className="min-h-[100px] transition-opacity duration-500"
+          style={{ opacity: isLoaded ? 1 : 0 }}
         >
           {/* Плейсхолдер загрузки */}
           {!isLoaded && (
