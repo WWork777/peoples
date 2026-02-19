@@ -2,35 +2,60 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function RestWidget() {
   const [isLoaded, setIsLoaded] = useState(false);
   const widgetInitialized = useRef(false);
+  const pathname = usePathname();
+  const containerRef = useRef(null);
 
   useEffect(() => {
     // Функция очистки виджета
     const cleanupWidget = () => {
-      if (window.HotelWidget && window.HotelWidget.destroy) {
+      if (window.HotelWidget) {
         try {
-          window.HotelWidget.destroy();
-          console.log("Widget destroyed");
+          // Пытаемся найти и удалить контейнер виджета
+          const container = document.getElementById("WidgetHorizontalBlockId");
+          if (container) {
+            container.innerHTML = ""; // Очищаем содержимое
+          }
+
+          // Если есть метод destroy, вызываем его
+          if (window.HotelWidget.destroy) {
+            window.HotelWidget.destroy();
+          }
+
+          console.log("Widget cleaned up");
         } catch (e) {
-          console.error("Error destroying widget:", e);
+          console.error("Error cleaning up widget:", e);
         }
       }
       widgetInitialized.current = false;
       setIsLoaded(false);
     };
 
-    // Функция инициализации виджета (только горизонтальная форма)
+    // Функция инициализации виджета
     const initWidget = () => {
-      // Очищаем предыдущий виджет если был
-      if (widgetInitialized.current) {
-        cleanupWidget();
+      // Проверяем, что контейнер существует
+      const container = document.getElementById("WidgetHorizontalBlockId");
+      if (!container) {
+        console.log("Container not found, retrying...");
+        setTimeout(initWidget, 100); // Пробуем снова через 100ms
+        return;
       }
+
+      // Очищаем контейнер перед инициализацией
+      container.innerHTML = "";
 
       if (window.HotelWidget) {
         try {
+          // Сначала пробуем уничтожить предыдущий инстанс если есть
+          if (window.HotelWidget.destroy) {
+            window.HotelWidget.destroy();
+          }
+
+          // Инициализируем заново
           window.HotelWidget.init({
             hotelId: "a032e796-375f-4350-b834-759226169822",
             theme: {
@@ -64,10 +89,10 @@ export default function RestWidget() {
             },
           });
 
-          // Добавляем ТОЛЬКО горизонтальную форму
+          // Добавляем горизонтальную форму
           window.HotelWidget.add({
             type: "bookingForm",
-            inline: true, // горизонтальная форма
+            inline: true,
             appearance: {
               container: "WidgetHorizontalBlockId",
             },
@@ -82,31 +107,55 @@ export default function RestWidget() {
 
     // Загружаем скрипт если еще не загружен
     const loadScript = () => {
-      if (!document.querySelector('script[src*="bookonline24.ru/widget.js"]')) {
-        const script = document.createElement("script");
-        script.src = "https://bookonline24.ru/widget.js";
-        script.async = true;
-        script.onload = () => {
-          console.log("Widget script loaded");
+      return new Promise((resolve, reject) => {
+        if (
+          !document.querySelector('script[src*="bookonline24.ru/widget.js"]')
+        ) {
+          const script = document.createElement("script");
+          script.src = "https://bookonline24.ru/widget.js";
+          script.async = true;
+          script.onload = () => {
+            console.log("Widget script loaded");
+            resolve();
+          };
+          script.onerror = (error) => {
+            console.error("Error loading widget script:", error);
+            reject(error);
+          };
+          document.body.appendChild(script);
+        } else {
+          // Скрипт уже загружен
+          resolve();
+        }
+      });
+    };
+
+    // Основная функция инициализации
+    const initialize = async () => {
+      try {
+        // Очищаем предыдущее состояние
+        cleanupWidget();
+
+        // Загружаем скрипт
+        await loadScript();
+
+        // Даем время скрипту полностью загрузиться
+        setTimeout(() => {
           initWidget();
-        };
-        script.onerror = (error) => {
-          console.error("Error loading widget script:", error);
-        };
-        document.body.appendChild(script);
-      } else if (window.HotelWidget) {
-        // Если скрипт уже загружен, инициализируем виджет
-        initWidget();
+        }, 100);
+      } catch (error) {
+        console.error("Failed to initialize widget:", error);
       }
     };
 
-    loadScript();
+    // Запускаем инициализацию
+    initialize();
 
-    // Очистка при размонтировании компонента
+    // Очистка при размонтировании
     return () => {
       cleanupWidget();
     };
-  }, []); // Пустой массив зависимостей - эффект выполняется при монтировании/размонтировании
+  }, [pathname]); // Перезапускаем при изменении пути
 
   return (
     <section id="widget" className="cozy-rest px-3.75 bg-white">
@@ -121,10 +170,12 @@ export default function RestWidget() {
         </h3>
       </div>
 
-      {/* ТОЛЬКО ГОРИЗОНТАЛЬНЫЙ виджет бронирования */}
+      {/* ГОРИЗОНТАЛЬНЫЙ виджет бронирования */}
       <div className="container max-w-6xl mx-auto px-4 pb-8">
         <div
+          ref={containerRef}
           id="WidgetHorizontalBlockId"
+          key={pathname} // Принудительно пересоздаем при смене пути
           className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         >
           {/* Плейсхолдер загрузки */}
@@ -140,8 +191,6 @@ export default function RestWidget() {
           )}
         </div>
       </div>
-
-      {/* Удаляем контейнер для списка номеров - он больше не нужен */}
     </section>
   );
 }
