@@ -40,6 +40,22 @@ export default function FloatingContactButton() {
     }
   }, [isMenuOpen]);
 
+  // Функция для отправки цели в Яндекс.Метрику при клике на телефон
+  const handlePhoneClick = (e) => {
+    // Отправляем цель в Яндекс.Метрику
+    try {
+      if (typeof window !== "undefined" && window.ym) {
+        window.ym(106106917, "reachGoal", "phone_floating");
+        console.log("✅ Цель phone_floating отправлена");
+      }
+    } catch (error) {
+      console.error("Ошибка отправки цели:", error);
+    }
+
+    // Не блокируем стандартное поведение ссылки
+    // Пользователь перейдет по ссылке tel:
+  };
+
   const socialLinks = [
     {
       name: "ВКонтакте",
@@ -60,10 +76,11 @@ export default function FloatingContactButton() {
       icon: FaPhone,
       href: "tel:+79236033030",
       delay: 200,
+      onClick: handlePhoneClick, // Добавляем обработчик для телефона
     },
     {
       name: "Max",
-      icon: null, // Используем изображение вместо иконки
+      icon: null,
       image: "/icons/max.svg",
       href: "https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo",
       delay: 300,
@@ -84,12 +101,17 @@ export default function FloatingContactButton() {
                 key={index}
                 href={link.href}
                 target={link.href.startsWith("tel:") ? undefined : "_blank"}
-                rel={link.href.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                rel={
+                  link.href.startsWith("tel:")
+                    ? undefined
+                    : "noopener noreferrer"
+                }
                 className={styles.menuItem}
                 style={{
                   animationDelay: `${link.delay}ms`,
                 }}
                 aria-label={link.name}
+                onClick={link.onClick} // Добавляем обработчик, если он есть
               >
                 {Icon ? (
                   <Icon className={styles.icon} />
@@ -124,4 +146,3 @@ export default function FloatingContactButton() {
     </div>
   );
 }
-
