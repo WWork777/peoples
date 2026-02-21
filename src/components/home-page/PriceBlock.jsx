@@ -15,6 +15,44 @@ export default function PriceBlock() {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [submitMessage, setSubmitMessage] = useState("");
 
+  const sendYandexGoal = () => {
+    if (typeof window === "undefined") return;
+
+    // Функция для отправки цели
+    const sendGoal = () => {
+      try {
+        if (window.ym) {
+          window.ym(106106917, "reachGoal", "price_form");
+          return true;
+        }
+        return false;
+      } catch (error) {
+        console.error("Ошибка при отправке цели:", error);
+        return false;
+      }
+    };
+
+    // Пробуем отправить сразу
+    if (sendGoal()) return;
+
+    // Если не получилось, пробуем еще несколько раз с интервалом
+    let attempts = 0;
+    const maxAttempts = 5;
+    const interval = setInterval(() => {
+      attempts++;
+      if (sendGoal() || attempts >= maxAttempts) {
+        clearInterval(interval);
+        if (attempts >= maxAttempts) {
+          console.warn(
+            "Не удалось отправить цель в Яндекс.Метрику после",
+            maxAttempts,
+            "попыток",
+          );
+        }
+      }
+    }, 500); // Проверяем каждые 500мс
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -56,6 +94,9 @@ export default function PriceBlock() {
       const result = await response.json();
 
       if (response.ok && result.success) {
+        // Отправляем цель в Яндекс.Метрику
+        sendYandexGoal();
+
         setSubmitStatus("success");
         setSubmitMessage("Спасибо! Мы свяжемся с вами в ближайшее время");
         setForm({ name: "", phone: "", contactMethod: "call" });
