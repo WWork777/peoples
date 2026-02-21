@@ -1,49 +1,49 @@
-import Map from "@/components/3dMap";
-import AdditionalServices from "@/components/home-page/additional-services";
-import Atmosphere from "@/components/home-page/atmosphere";
-import Contacts from "@/components/home-page/contacts";
-import Dobro from "@/components/home-page/dobro";
-import Gallery from "@/components/home-page/gallery";
-import Hero from "@/components/home-page/hero";
-import ActionsBlock from "@/components/home-page/actions-block";
-import Promotion from "@/components/home-page/promotion";
-import RestWidget from "@/components/home-page/rest-widget";
-import Reviews from "@/components/home-page/reviews/reviews";
-import JsonLd from "@/components/JsonLd";
-import Quiz from "@/components/home-page/Quiz";
-import PriceBlock from "@/components/home-page/PriceBlock";
+import Map from '@/components/3dMap';
+import AdditionalServices from '@/components/home-page/additional-services';
+import Atmosphere from '@/components/home-page/atmosphere';
+import Contacts from '@/components/home-page/contacts';
+import Dobro from '@/components/home-page/dobro';
+import Gallery from '@/components/home-page/gallery';
+import Hero from '@/components/home-page/hero';
+import ActionsBlock from '@/components/home-page/actions-block';
+import Promotion from '@/components/home-page/promotion';
+import RestWidget from '@/components/home-page/rest-widget';
+import Reviews from '@/components/home-page/reviews/reviews';
+import JsonLd from '@/components/JsonLd';
+import Quiz from '@/components/home-page/Quiz';
+import PriceBlock from '@/components/home-page/PriceBlock';
 
 export const metadata = {
-  title: "Снять дом в Шерегеше посуточно | Люди в уюте",
+  title: 'Снять дом в Шерегеше посуточно | Люди в уюте',
   description:
-    "Комфортный отдых в Шерегеше для семьи и компаний. Номера у склонов, русская баня, зона BBQ, трансфер. Идеальная база для горнолыжного сезона и летнего туризма в Горной Шории. Забронируйте онлайн.",
+    'Комфортный отдых в Шерегеше для семьи и компаний. Номера у склонов, русская баня, зона BBQ, трансфер. Идеальная база для горнолыжного сезона и летнего туризма в Горной Шории. Забронируйте онлайн.',
   keywords:
-    "Шерегеш, гостевой комплекс, проживание у подъемников, аренда в Шерегеше, баня в Шерегеше, отдых в Горной Шории, горнолыжный курорт, летний отдых, размещение, номера, бронирование",
+    'Шерегеш, гостевой комплекс, проживание у подъемников, аренда в Шерегеше, баня в Шерегеше, отдых в Горной Шории, горнолыжный курорт, летний отдых, размещение, номера, бронирование',
 
   openGraph: {
     title:
-      "Проживание в Шерегеше у подъемников — с баней и трансфером | Люди в уюте",
+      'Проживание в Шерегеше у подъемников — с баней и трансфером | Люди в уюте',
     description:
-      "Уютные номера у склонов, русская баня, BBQ зона. Идеальная база для отдыха зимой и летом. Забронируйте размещение онлайн.",
-    type: "website",
-    locale: "ru_RU",
-    siteName: "Люди в уюте",
+      'Уютные номера у склонов, русская баня, BBQ зона. Идеальная база для отдыха зимой и летом. Забронируйте размещение онлайн.',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'Люди в уюте',
     images: [
       {
-        url: "/gallery/1.webp", // Замените на путь к вашему OG изображению
+        url: '/gallery/1.webp', // Замените на путь к вашему OG изображению
         width: 1200,
         height: 630,
-        alt: "Гостевой комплекс в Шерегеше",
+        alt: 'Гостевой комплекс в Шерегеше',
       },
     ],
   },
 
   twitter: {
-    card: "summary_large_image",
-    title: "Гостевой комплекс в Шерегеше | У подъемников",
+    card: 'summary_large_image',
+    title: 'Гостевой комплекс в Шерегеше | У подъемников',
     description:
-      "Комфортное размещение у склонов Шерегеша с баней и зоной отдыха. Бронируйте онлайн.",
-    images: ["/gallery/1.webp"],
+      'Комфортное размещение у склонов Шерегеша с баней и зоной отдыха. Бронируйте онлайн.',
+    images: ['/gallery/1.webp'],
   },
 
   robots: {
@@ -52,14 +52,14 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
 
   alternates: {
-    canonical: "https://людивуюте.рф", // Замените на ваш URL
+    canonical: 'https://людивуюте.рф', // Замените на ваш URL
   },
 };
 
