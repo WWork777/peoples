@@ -5,6 +5,7 @@ import Contacts from "@/components/home-page/contacts";
 import Dobro from "@/components/home-page/dobro";
 import Gallery from "@/components/home-page/gallery";
 import Hero from "@/components/home-page/hero";
+import ActionsBlock from "@/components/home-page/actions-block";
 import Promotion from "@/components/home-page/promotion";
 import RestWidget from "@/components/home-page/rest-widget";
 import Reviews from "@/components/home-page/reviews/reviews";
@@ -67,7 +68,7 @@ export default function Home() {
     <>
       <JsonLd />
       <Hero />
-
+      <ActionsBlock />
       <Atmosphere />
       <RestWidget />
       <Quiz />

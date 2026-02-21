@@ -137,6 +137,9 @@ export const generateFormMessage = formData => {
 			case 'contact-page-form':
 				formTypeText = '📞 Заказ'
 				break
+			case 'action-comment':
+				formTypeText = '💬 Комментарий к акции'
+				break
 			default:
 				formTypeText = fields.formId
 		}

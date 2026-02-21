@@ -10,10 +10,14 @@ export async function POST(request) {
     const { name, phone, email, message, call, write, formId, timestamp } =
       formData;
 
-    // Проверка обязательных полей
+    // Проверка обязательных полей (для комментариев к акции — только message)
     const missingFields = [];
-    if (!phone) missingFields.push("phone");
     if (!formId) missingFields.push("formId");
+    if (formId === "action-comment") {
+      if (!message || !String(message).trim()) missingFields.push("message");
+    } else {
+      if (!phone) missingFields.push("phone");
+    }
 
     if (missingFields.length > 0) {
       return NextResponse.json(
@@ -99,6 +103,17 @@ export async function POST(request) {
             message,
             call,
             write,
+            formId,
+            timestamp,
+          },
+        },
+        // Комментарий к акции (имя и телефон опциональны)
+        "action-comment": {
+          dataToSend: {
+            name: name || "",
+            phone: phone || "",
+            email: email || "",
+            message,
             formId,
             timestamp,
           },
