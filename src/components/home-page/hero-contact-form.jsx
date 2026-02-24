@@ -97,6 +97,11 @@ export default function HeroContactForm() {
       const result = await response.json();
 
       if (response.ok && result.success) {
+        // Добавляем вызов цели Яндекс.Метрики
+        if (typeof window !== "undefined" && window.ym) {
+          window.ym(106106917, "reachGoal", "hero_form");
+        }
+
         setSubmitStatus("success");
         setSubmitMessage("Спасибо! Мы скоро с вами свяжемся.");
         reset();
