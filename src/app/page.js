@@ -68,7 +68,8 @@ export default function Home() {
     <>
       <JsonLd />
       <Hero />
-      <ActionsBlock />
+      {/* Блок акций/мероприятий — раскомментировать, когда будет новое мероприятие */}
+      {/* <ActionsBlock /> */}
       <Atmosphere />
       <RestWidget />
       <Quiz />
