@@ -99,7 +99,7 @@ export default function Header() {
   return (
     <>
       {/* Фиксированный header при скролле */}
-      <header
+      {/* <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isHeaderVisible
             ? "translate-y-0 opacity-100 bg-black/30 backdrop-blur-sm shadow-md"
@@ -168,7 +168,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       <div className="container max-w-7xl  mx-auto px-3.75">
         {/* Основной header в hero секции */}
