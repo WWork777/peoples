@@ -112,7 +112,7 @@ export default function Hero() {
   return (
     <>
       {/* Фиксированный header при скролле */}
-      <header
+      {/* <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isHeaderVisible
             ? "translate-y-0 opacity-100 bg-black/30 backdrop-blur-sm shadow-md"
@@ -130,44 +130,6 @@ export default function Hero() {
             <div className="hidden md:block">
               пгт. Шерегеш, Звездная улица, 8
             </div>
-            <div className="hidden md:flex items-center gap-5">
-              {/* <a
-								className='w-8'
-								href='https://m.vk.com/lyudivuyute'
-								target='_blank'
-								rel='noopener noreferrer'
-								aria-label='Наша страница ВКонтакте'
-							>
-								<img src='/images/socials/vk.webp' alt='vk' />
-							</a>
-							<a
-								className='w-8'
-								href='https://t.me/lyudivuyuteinfo'
-								target='_blank'
-								rel='noopener noreferrer'
-								aria-label='Наш Telegram канал'
-							>
-								<img src='/images/socials/tg.webp' alt='tg' />
-							</a>
-							<a
-								className='w-8'
-								href='https://wa.me/9236303030'
-								target='_blank'
-								rel='noopener noreferrer'
-								aria-label='Напишите нам в WhatsApp'
-							>
-								<img src='/images/socials/wa.webp' alt='wa' />
-							</a>
-							<a
-								className='w-8'
-								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
-								target='_blank'
-								rel='noopener noreferrer'
-								aria-label='Напишите нам в Max'
-							>
-								<img src='/icons/max.svg' alt='max' />
-							</a> */}
-            </div>
             <button
               onClick={toggleMenu}
               className="cursor-pointer hover:opacity-80 transition-opacity"
@@ -181,7 +143,7 @@ export default function Hero() {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       <section className="hero min-h-[120vh] sm:min-h-[120vh] md:min-h-[120vh] lg:min-h-screen w-full relative overflow-hidden">
         <video
@@ -587,7 +549,7 @@ export default function Hero() {
       </section>
 
       {/* Плавающая кнопка "Свяжитесь с нами" */}
-      <FloatingContactButton />
+      {/* <FloatingContactButton /> */}
     </>
   );
 }
