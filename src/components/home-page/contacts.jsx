@@ -6,10 +6,10 @@ export default function Contacts() {
   return (
     <section
       id="contacts"
-      className='contacts bg-[url("/images/contacts/contacts_bg.png")]'
+      className='contacts bg-[url("/images/contacts/contacts_bg.png")]  '
     >
       <div className="container max-w-7xl mx-auto px-3.75 py-10 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2">
+        <div className=" w-full md:w-1/2">
           <h2 className="text-white text-[25px] sm:text-[32px] font-bold text-left">
             КОНТАКТЫ
           </h2>
@@ -120,7 +120,7 @@ export default function Contacts() {
           <span className="leading-6 pt-5 block font-medium">
             Мы работаем круглосуточно без выходных!
           </span>
-          <ul className="pt-5">
+          <ul className="pt-5 ">
             <li className="pb-1">ИП Мальцева Наталья Александровна</li>
             <li className="pb-1">ИНН 420213742466</li>
             <li>Номер реестровой записи С42202501655</li>
@@ -142,43 +142,9 @@ export default function Contacts() {
               <img src="/images/logo/text.webp" alt="logo-text" />
             </span>
           </Link>
-
-          {/* Блок о разработчике - только для десктопа (в левой колонке) */}
-          <div className="hidden md:block pt-10 pb-4 border-t border-gray-600/30 mt-10">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 hover:bg-white/10 transition-all duration-300">
-              <span className="text-sm text-gray-300 uppercase tracking-wider block mb-3">
-                Разработка сайта
-              </span>
-              <a
-                href="https://virlab42.ru"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 group"
-                aria-label="Сайт разработчика"
-              >
-                <div className="bg-white/10 p-3 rounded-xl transition-colors">
-                  <img
-                    src="/site.png"
-                    alt="Логотип разработчика"
-                    className="h-12 w-auto object-contain"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-xl transition-colors">
-                    Вирлаб
-                  </span>
-                  <span className="text-gray-400 text-sm">
-                    создание и продвижение сайтов
-                  </span>
-                </div>
-              </a>
-            </div>
-          </div>
         </div>
-
-        {/* Правая колонка с формой - без изменений на десктопе */}
         <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start">
-          <div className="w-full">
+          <div>
             <span className="text-[24px] font-medium">
               Если остались вопросы:
             </span>
@@ -186,40 +152,6 @@ export default function Contacts() {
               Оставьте заявку и мы свяжемся с вами в <br /> скором времени
             </p>
             <SimpleContactForm />
-          </div>
-        </div>
-      </div>
-
-      {/* Блок о разработчике - только для мобильных (под всем контентом) */}
-      <div className="block md:hidden container max-w-7xl mx-auto px-3.75 pb-10">
-        <div className="w-full pt-0 mt-0 border-t border-gray-600/30">
-          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 hover:bg-white/10 transition-all duration-300">
-            <span className="text-sm text-gray-300 uppercase tracking-wider block mb-3">
-              Разработка сайта
-            </span>
-            <a
-              href="https://virlab42.ru"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 group"
-              aria-label="Сайт разработчика"
-            >
-              <div className="bg-white/10 p-3 rounded-xl transition-colors">
-                <img
-                  src="/site.png"
-                  alt="Логотип разработчика"
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-xl transition-colors">
-                  Вирлаб
-                </span>
-                <span className="text-gray-400 text-sm">
-                  создание и продвижение сайтов
-                </span>
-              </div>
-            </a>
           </div>
         </div>
       </div>
