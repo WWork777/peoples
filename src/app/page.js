@@ -73,7 +73,7 @@ export default function Home() {
       <Atmosphere />
       <RestWidget />
       {/* <Quiz /> */}
-      <PriceBlock />
+      {/* <PriceBlock /> */}
       {/* <Map /> */}
       <Promotion />
       <AdditionalServices />
