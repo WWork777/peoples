@@ -3,6 +3,23 @@
 import Link from "next/link";
 
 export default function AdditionalServices() {
+  const scrollToWidget = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Проверяем, находимся ли мы на главной странице
+    if (window.location.pathname === "/") {
+      // Если на главной - просто скроллим к виджету
+      const widgetElement = document.getElementById("widget");
+      if (widgetElement) {
+        widgetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Если не на главной - переходим на главную с якорем
+      window.location.href = "/#widget";
+    }
+  };
+
   return (
     <section id="additional" className="additional-services">
       <div className="container max-w-360 mx-auto px-3.75">
@@ -21,6 +38,7 @@ export default function AdditionalServices() {
               img="/images/additional/1.png"
               title="ТРАНСФЕР"
               description="Поможем купить авиабилеты, организовать трансфер и встречу в аэропорту."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -30,6 +48,7 @@ export default function AdditionalServices() {
               img="/images/additional/2.png"
               title="ИНСТРУКТОР"
               description="Профессиональные инструктора помогут освоить новые навыки и техники."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -39,6 +58,7 @@ export default function AdditionalServices() {
               img="/images/additional/3.png"
               title={"ПРОЖИВАНИЕ\nС ЖИВОТНЫМИ"}
               description="Уютное проживание вместе с вашими питомцами, без лишних забот."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -48,6 +68,7 @@ export default function AdditionalServices() {
               img="/images/additional/4.png"
               title="КОФЕЙНЯ"
               description="Свежий кофе, десерты и приятная атмосфера для отдыха."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -57,6 +78,7 @@ export default function AdditionalServices() {
               img="/images/additional/5.png"
               title="ПРОКАТ"
               description="Прокат оборудования и снаряжения для комфортного отдыха."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -66,6 +88,7 @@ export default function AdditionalServices() {
               img="/images/additional/6.png"
               title={"ПРОЖИВАНИЕ\nС ДЕТЬМИ"}
               description="Удобные условия для отдыха с детьми и развлечения для всей семьи."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -75,6 +98,7 @@ export default function AdditionalServices() {
               img="/images/additional/7.png"
               title="УБОРКА"
               description="Профессиональная уборка номеров и территории для вашего комфорта."
+              onDateClick={scrollToWidget}
             />
           </Link>
 
@@ -84,6 +108,7 @@ export default function AdditionalServices() {
               img="/images/additional/8.png"
               title="ДОСТАВКА ЕДЫ"
               description="Быстрая доставка еды прямо к вашему номеру или месту отдыха."
+              onDateClick={scrollToWidget}
             />
           </Link>
         </div>
@@ -93,7 +118,7 @@ export default function AdditionalServices() {
 }
 
 /* Отдельный компонент карточки */
-function CardContent({ img, title, description }) {
+function CardContent({ img, title, description, onDateClick }) {
   return (
     <div
       className="group relative min-h-105 rounded-3xl overflow-hidden
@@ -115,12 +140,9 @@ function CardContent({ img, title, description }) {
       >
         <div className="flex justify-end">
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              window.location.href = "/#widget";
-            }}
+            onClick={onDateClick}
             className="bg-white text-(--accent-color) px-6 py-2 font-bold
-            rounded-2xl hover:bg-gray-100 transition"
+            rounded-2xl hover:bg-gray-100 transition cursor-pointer"
           >
             Выбрать дату
           </button>
