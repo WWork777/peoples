@@ -73,7 +73,7 @@ export default function RestWidget() {
   }, []);
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-16" id="widget">
       <div className="container max-w-7xl mx-auto px-4">
         {/* CTA текст */}
         <div className="text-center mb-8">

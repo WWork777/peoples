@@ -168,7 +168,7 @@ export default function Contacts() {
                     Вирлаб
                   </span>
                   <span className="text-gray-400 text-sm">
-                    создание и продвижение сайтов
+                    Создание и продвижение сайтов
                   </span>
                 </div>
               </a>

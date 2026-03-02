@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Reviews from "../home-page/reviews/reviews";
 import ServicesForm from "./services-form";
+import Link from "next/link";
 
 function formatRuPhone(digits) {
   const d = digits.replace(/\D/g, "").slice(0, 11);
@@ -483,6 +484,18 @@ function OrderServiceModal({ isOpen, onClose, defaultService = "transfer" }) {
 }
 
 export default function TransferPage() {
+  useEffect(() => {
+    // Небольшая задержка, чтобы переопределить скролл браузера
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "instant", // или 'smooth' для плавности
+      });
+    }, 10);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [defaultService, setDefaultService] = useState("transfer");
 
@@ -517,13 +530,13 @@ export default function TransferPage() {
               к месту отдыха с максимальным комфортом и безопасностью
             </p>
 
-            <button
+            <Link
               type="button"
-              onClick={() => openModal("transfer")}
-              className="bg-[#0E4B3B] hover:bg-[#0C4032] text-white px-16 py-3 rounded-full cursor-pointer mx-auto block transition-colors"
+              href="/booking"
+              className="text-center bg-[#0E4B3B] hover:bg-[#0C4032] text-white px-16 py-3 rounded-full cursor-pointer mx-auto block transition-colors"
             >
               Заказать
-            </button>
+            </Link>
           </div>
 
           <div className="w-full md:w-1/2">
@@ -561,13 +574,13 @@ export default function TransferPage() {
               если потребуется, сможем найти индивидуальные решения.
             </p>
 
-            <button
+            <Link
               type="button"
-              onClick={() => openModal("rent")}
-              className="bg-[#0E4B3B] hover:bg-[#0C4032] text-white px-16 py-3 rounded-full cursor-pointer mx-auto block transition-colors"
+              href="/booking"
+              className="bg-[#0E4B3B] hover:bg-[#0C4032] text-white px-16 py-3 rounded-full cursor-pointer mx-auto block transition-colors text-center"
             >
               Заказать
-            </button>
+            </Link>
           </div>
         </div>
       </div>

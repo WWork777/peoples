@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Reviews from "../home-page/reviews/reviews";
 import ServicesForm from "./services-form";
-
+import Link from "next/link";
 export default function PetPage() {
   const [isRulesOpen, setIsRulesOpen] = useState(false);
 
@@ -22,6 +22,18 @@ export default function PetPage() {
       document.body.style.overflow = "";
     };
   }, [isRulesOpen]);
+
+  useEffect(() => {
+    // Небольшая задержка, чтобы переопределить скролл браузера
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "instant", // или 'smooth' для плавности
+      });
+    }, 10);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="bg-background mt-10">
@@ -96,15 +108,15 @@ export default function PetPage() {
             </div>
 
             {/* OPEN MODAL */}
-            <button
+            <Link
               type="button"
-              onClick={() => setIsRulesOpen(true)}
+              href="/booking"
               className="bg-white rounded-[32px] px-10 sm:px-12 py-10 text-center hover:shadow-md transition-shadow h-[140px]"
             >
               <span className="text-(--accent-color) font-extrabold tracking-wide leading-none  text-[22px] sm:text-[26px] md:text-[30px] lg:text-[28px] xl:text-[32px] cursor-pointer">
                 ПОЛНЫЙ СПИСОК ПРАВИЛ
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
