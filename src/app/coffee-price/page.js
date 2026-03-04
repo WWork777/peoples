@@ -10,7 +10,7 @@ const drinks = [
 		name: 'Эспрессо',
 		volume: '250 мл',
 		price: 180,
-		image: '/coffee-price/img1.png',
+		image: '/coffee-price/1.webp',
 		description: 'Насыщенный и крепкий',
 	},
 	{
@@ -18,7 +18,7 @@ const drinks = [
 		name: 'Американо',
 		volume: '250 мл',
 		price: 250,
-		image: '/coffee-price/img2.png',
+		image: '/coffee-price/2.webp',
 		description: 'Мягкий вкус с ароматом',
 	},
 	{
@@ -26,7 +26,7 @@ const drinks = [
 		name: 'Капучино',
 		volume: '350 мл',
 		price: 300,
-		image: '/coffee-price/img3.png',
+		image: '/coffee-price/6.webp',
 		description: 'С нежной молочной пенкой',
 	},
 	{
@@ -34,7 +34,7 @@ const drinks = [
 		name: 'Латте',
 		volume: '350 мл',
 		price: 300,
-		image: '/coffee-price/img4.png',
+		image: '/coffee-price/3.webp',
 		description: 'Молочный и бархатистый',
 	},
 	{
@@ -42,7 +42,7 @@ const drinks = [
 		name: 'Флэт уайт',
 		volume: '180 мл',
 		price: 250,
-		image: '/coffee-price/img5.png',
+		image: '/coffee-price/4.webp',
 		description: 'Двойная порция эспрессо',
 	},
 	{
@@ -50,7 +50,7 @@ const drinks = [
 		name: 'Какао',
 		volume: '250 мл',
 		price: 200,
-		image: '/coffee-price/img6.png',
+		image: '/coffee-price/5.webp',
 		description: 'Волшебный вкус какао',
 	},
 ]
