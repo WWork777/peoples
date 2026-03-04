@@ -1,4 +1,3 @@
-// page.js
 'use client'
 
 import Image from 'next/image'
@@ -11,7 +10,7 @@ const drinks = [
 		name: 'Эспрессо',
 		volume: '250 мл',
 		price: 180,
-		image: '/coffee-price/img1.png', // добавьте пути к своим изображениям
+		image: '/coffee-price/img1.png',
 		description: 'Насыщенный и крепкий',
 	},
 	{
@@ -60,6 +59,7 @@ export default function CoffeePrice() {
 	const [selectedDrinks, setSelectedDrinks] = useState([])
 	const [customerName, setCustomerName] = useState('')
 	const [customerPhone, setCustomerPhone] = useState('')
+	const [customerHouse, setCustomerHouse] = useState('') // Новое поле для номера дома
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [submitStatus, setSubmitStatus] = useState(null)
 
@@ -68,7 +68,7 @@ export default function CoffeePrice() {
 		const timer = setTimeout(() => {
 			window.scrollTo({
 				top: 0,
-				behavior: 'smooth', // или 'instant'
+				behavior: 'smooth',
 			})
 		}, 10)
 
@@ -123,8 +123,8 @@ export default function CoffeePrice() {
 			return
 		}
 
-		if (!customerName || !customerPhone) {
-			alert('Заполните имя и телефон')
+		if (!customerName || !customerPhone || !customerHouse) {
+			alert('Заполните все поля')
 			return
 		}
 
@@ -140,6 +140,7 @@ export default function CoffeePrice() {
 				body: JSON.stringify({
 					name: customerName,
 					phone: customerPhone,
+					houseNumber: customerHouse, // Добавлено поле с номером дома
 					drinks: selectedDrinks,
 					totalPrice: totalPrice,
 					orderDate: new Date().toISOString(),
@@ -154,6 +155,7 @@ export default function CoffeePrice() {
 				setSelectedDrinks([])
 				setCustomerName('')
 				setCustomerPhone('')
+				setCustomerHouse('') // Очистка поля номера дома
 			} else {
 				setSubmitStatus('error')
 				console.error('Ошибка отправки:', data.error)
@@ -181,11 +183,9 @@ export default function CoffeePrice() {
 							className='bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow'
 						>
 							<div className='relative h-48 bg-gray-200'>
-								{/* Замените на реальные изображения */}
 								<div className='absolute inset-0 flex items-center justify-center text-gray-500'>
 									[Изображение {drink.name}]
 								</div>
-
 								<Image
 									src={drink.image}
 									alt={drink.name}
@@ -235,7 +235,7 @@ export default function CoffeePrice() {
 									key={item.id}
 									className='flex flex-col sm:flex-row gap-5 items-center justify-between bg-white p-3 rounded-lg'
 								>
-									<div className='flex-1 '>
+									<div className='flex-1'>
 										<span className='font-medium text-(--accent-color)'>
 											{item.name}
 										</span>
@@ -293,7 +293,6 @@ export default function CoffeePrice() {
 								<input
 									type='text'
 									id='name'
-									autoFocus
 									value={customerName}
 									onChange={e => setCustomerName(e.target.value)}
 									className='w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-(--accent-color) outline-0 focus:border-transparent bg-white text-(--accent-color)'
@@ -314,10 +313,32 @@ export default function CoffeePrice() {
 									id='phone'
 									value={customerPhone}
 									onChange={e => setCustomerPhone(e.target.value)}
-									className='w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-(--accent-color) focus:border-transparent outline-0 bg-white  text-(--accent-color)'
+									className='w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-(--accent-color) focus:border-transparent outline-0 bg-white text-(--accent-color)'
 									placeholder='+7 (999) 123-45-67'
 									required
 								/>
+							</div>
+
+							{/* Новое поле для номера дома */}
+							<div>
+								<label
+									htmlFor='house'
+									className='block text-sm font-medium mb-1 text-(--accent-color)'
+								>
+									Номер дома *
+								</label>
+								<input
+									type='text'
+									id='house'
+									value={customerHouse}
+									onChange={e => setCustomerHouse(e.target.value)}
+									className='w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-(--accent-color) focus:border-transparent outline-0 bg-white text-(--accent-color)'
+									placeholder='Например: 1, 2, 3'
+									required
+								/>
+								<p className='text-xs text-gray-500 mt-1'>
+									Укажите номер дома для доставки
+								</p>
 							</div>
 
 							<button
