@@ -105,13 +105,6 @@ export async function POST(request) {
 🍵 <b>Состав заказа:</b>
 ${drinksList}
 
-📅 <b>Дата:</b> ${new Date().toLocaleString('ru-RU', {
-				day: 'numeric',
-				month: 'long',
-				year: 'numeric',
-				hour: '2-digit',
-				minute: '2-digit',
-			})}
 ━━━━━━━━━━━━━━━━━━━━━━━
 `
 
