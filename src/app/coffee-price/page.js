@@ -298,6 +298,7 @@ export default function CoffeePrice() {
 									className='w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-(--accent-color) outline-0 focus:border-transparent bg-white text-(--accent-color)'
 									placeholder='Иван Иванов'
 									required
+									autoFocus
 								/>
 							</div>
 
