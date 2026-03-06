@@ -453,11 +453,11 @@ export default function PromoModal() {
 					</div>
 
 					{/* Альтернативный вариант с эмодзи и звездочками */}
-					<div className='flex justify-center items-center gap-2 mb-4'>
+					{/* <div className='flex justify-center items-center gap-2 mb-4'>
 						<span className='text-2xl animate-spin-slow'>✨</span>
 						<span className='text-2xl animate-bounce'>🎉</span>
 						<span className='text-2xl animate-spin-slow'>✨</span>
-					</div>
+					</div> */}
 
 					<form onSubmit={handleSubmit} className='space-y-4'>
 						<div>
