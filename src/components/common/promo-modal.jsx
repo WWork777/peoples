@@ -535,7 +535,7 @@ export default function PromoModal() {
 									<span>Отправка...</span>
 								</div>
 							) : (
-								'Забронировать'
+								'Получить скидку'
 							)}
 						</button>
 					</form>
