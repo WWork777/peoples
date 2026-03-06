@@ -415,7 +415,7 @@ export default function PromoModal() {
 					<div className='flex justify-center mb-6'>
 						<div className='relative'>
 							{/* Основная надпись с анимацией */}
-							<p className='text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-500 animate-bounce animate-pulse'>
+							<p className='text-3xl xs:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-500 animate-bounce animate-pulse'>
 								<span className='inline-block animate-wiggle'>С</span>
 								<span className='inline-block animate-wiggle animation-delay-100'>
 									к
