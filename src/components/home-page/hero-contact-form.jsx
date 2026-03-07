@@ -1,17 +1,9 @@
 'use client'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 export default function HeroContactForm() {
-	useEffect(() => {
-		console.log('URL:', window.location.href)
-		console.log('Hash:', window.location.hash)
-		console.log('Scroll position:', window.scrollY)
-
-		// Проверим, есть ли фокус на каком-либо поле
-		console.log('Active element:', document.activeElement)
-	}, [])
 	const {
 		register,
 		handleSubmit,
@@ -27,6 +19,7 @@ export default function HeroContactForm() {
 			message: '',
 			agreement: false,
 		},
+		shouldFocusError: false, // Отключает автофокус на поле с ошибкой
 	})
 
 	const [isSubmitting, setIsSubmitting] = useState(false)
