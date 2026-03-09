@@ -64,7 +64,6 @@ export const metadata = {
 export default function Home() {
 	return (
 		<>
-			<PromoModal />
 			<JsonLd />
 			<Hero />
 			{/* Блок акций/мероприятий — раскомментировать, когда будет новое мероприятие */}
@@ -81,6 +80,7 @@ export default function Home() {
 			<Reviews />
 			<Dobro />
 			<Contacts />
+			<PromoModal />
 		</>
 	)
 }

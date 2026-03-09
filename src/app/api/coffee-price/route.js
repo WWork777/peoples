@@ -79,8 +79,8 @@ export async function POST(request) {
 		})
 
 		// Отправка в Telegram
-		const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
-		const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID
+		const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN_DRINK
+		const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID_DRINK
 
 		if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
 			// Форматирование списка напитков
