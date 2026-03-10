@@ -6,6 +6,7 @@ export default function Promotion() {
   // Состояние для управления показом уведомления
   const [copied, setCopied] = useState(false);
 
+  // Добавили поле `code` к карточкам, где есть промокод
   const promo = [
     {
       title: "Праздничные выходные",
@@ -13,6 +14,7 @@ export default function Promotion() {
       period: "До 30 ноября 2024 года",
       icon: "📅",
       color: "bg-blue-50 border-blue-200",
+      code: "ХОЧУВЫХОДНЫЕ",
     },
     {
       title: "Будний день со скидкой 🎁",
@@ -20,6 +22,7 @@ export default function Promotion() {
       period: "Скидка до 30% + бонусы",
       icon: "⛰️",
       color: "bg-orange-50 border-orange-200",
+      code: "ХОЧУБУДНИ",
     },
     {
       title: "Ваш праздник — наш подарок!",
@@ -27,6 +30,7 @@ export default function Promotion() {
       period: "Программа лояльности",
       icon: "🎁",
       color: "bg-purple-50 border-purple-200",
+      code: "ХОЧУПРАЗДНИК",
     },
     {
       title: "Раннее бронирование",
@@ -34,21 +38,22 @@ export default function Promotion() {
       period: "Круглый год",
       icon: "👨‍👩‍👧‍👦",
       color: "bg-green-50 border-green-200",
+      code: null, // У этой акции нет промокода
     },
   ];
 
-  // Список промокодов для их подсветки в карточке
   const promoCodes = ["ХОЧУПРАЗДНИК", "ХОЧУБУДНИ", "ХОЧУВЫХОДНЫЕ"];
 
-  // Функция копирования
-  // Обновленная функция копирования + плавный скролл
-  const handleCopy = (e, text) => {
+  // Функция клика по карточке
+  const handleCardClick = (e, code) => {
+    // Если у акции нет промокода, просто позволяем ссылке работать как обычно (перейти к якорю)
+    if (!code) return;
+
     // Останавливаем стандартный резкий прыжок по ссылке
     e.preventDefault();
-    e.stopPropagation();
 
-    // 1. Копируем текст
-    navigator.clipboard.writeText(text);
+    // 1. Копируем текст промокода
+    navigator.clipboard.writeText(code);
     setCopied(true);
 
     // Прячем уведомление через 2 секунды
@@ -136,20 +141,21 @@ export default function Promotion() {
               <Link
                 key={i}
                 href="#widget"
+                onClick={(e) => handleCardClick(e, item.code)} // Добавили обработчик на саму карточку
                 className="group block text-(--accent-color) bg-white py-8 px-5 rounded-3xl flex flex-col 
                         shadow-lg transition-all duration-500 hover:scale-[1.01] 
-                        hover:shadow-2xl hover:border hover:border-(--accent-color)/20 cursor-pointer
+                        hover:shadow-xl hover:border hover:border-(--accent-color)/10 cursor-pointer
                         hover:z-10"
                 style={{
                   transform: "rotate(0deg)",
-                  transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  transition: "all 0.5s cubic-bezier(0.25, 1, 0.5, 1)",
                 }}
                 onMouseEnter={(e) => {
-                  const randomRotate = Math.random() * 2 - 2;
+                  const randomRotate = Math.random() * 2 - 1;
                   e.currentTarget.style.transform = `scale(1.01) rotate(${randomRotate}deg)`;
 
-                  const randomX = Math.random() * 10 - 5;
-                  const randomY = Math.random() * 10 - 5;
+                  const randomX = Math.random() * 4 - 2;
+                  const randomY = Math.random() * 4 - 2;
                   e.currentTarget.style.transform += ` translate(${randomX}px, ${randomY}px)`;
                 }}
                 onMouseLeave={(e) => {
@@ -164,14 +170,12 @@ export default function Promotion() {
                   {item.desc.split("\n").map((line, idx) => {
                     const trimmedLine = line.trim();
 
-                    // Отрисовка кликабельного промокода
+                    // Отрисовка промокода (убрали onClick отсюда, так как он теперь на всей карточке)
                     if (promoCodes.includes(trimmedLine)) {
                       return (
                         <span
                           key={idx}
-                          onClick={(e) => handleCopy(e, trimmedLine)}
-                          title="Нажмите, чтобы скопировать"
-                          className="inline-flex items-center gap-2 mt-2 px-3 py-1 bg-green-100 text-green-800 font-bold rounded-lg border border-green-200 tracking-wider hover:bg-green-200 hover:scale-105 transition-all cursor-pointer"
+                          className="inline-flex items-center gap-2 mt-2 px-3 py-1 bg-green-100 text-green-800 font-bold rounded-lg border border-green-200 tracking-wider transition-all"
                         >
                           {trimmedLine}
                           <svg
@@ -203,7 +207,7 @@ export default function Promotion() {
                   })}
                 </h5>
                 <img
-                  className="w-10 mx-auto mt-4 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12"
+                  className="w-10 mx-auto mt-4 opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-300 group-hover:rotate-6"
                   src="/images/logo/logo_green.webp"
                   alt="logo"
                 />
