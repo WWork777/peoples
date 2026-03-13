@@ -10,6 +10,13 @@ export default function Hero() {
 	const [isHeaderVisible, setIsHeaderVisible] = useState(false)
 	const [lastScrollY, setLastScrollY] = useState(0)
 
+	// Вспомогательная функция для отправки целей в Яндекс.Метрику
+	const sendYandexGoal = goalName => {
+		if (typeof window !== 'undefined' && window.ym) {
+			window.ym(106106917, 'reachGoal', goalName)
+		}
+	}
+
 	const scrollToId = id => {
 		closeMenu()
 
@@ -170,47 +177,13 @@ export default function Hero() {
 								пгт. Шерегеш, Звездная улица, 8
 							</div>
 							<div className='hidden md:flex items-center gap-2 xl:gap-5'>
-								{/* <a
-									className='w-8'
-									href='https://m.vk.com/lyudivuyute'
-									target='_blank'
-									rel='noopener noreferrer'
-									aria-label='Наша страница ВКонтакте'
-								>
-									<img src='/images/socials/vk.webp' alt='vk' />
-								</a>
-								<a
-									className='w-8'
-									href='https://t.me/lyudivuyuteinfo'
-									target='_blank'
-									rel='noopener noreferrer'
-									aria-label='Наш Telegram канал'
-								>
-									<img src='/images/socials/tg.webp' alt='tg' />
-								</a>
-								<a
-									className='w-8'
-									href='https://wa.me/9236303030'
-									target='_blank'
-									rel='noopener noreferrer'
-									aria-label='Напишите нам в WhatsApp'
-								>
-									<img src='/images/socials/wa.webp' alt='wa' />
-								</a>
-								<a
-									className='w-8'
-									href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
-									target='_blank'
-									rel='noopener noreferrer'
-									aria-label='Напишите нам в Max'
-								>
-									<img src='/icons/max.svg' alt='max' />
-								</a> */}
+								{/* VK */}
 								<a
 									className=' hover:opacity-80 transition-opacity'
-									href='https://m.vk.com/lyudivuyute'
+									href='https://m.vk.com/lyudivuyute  '
 									target='_blank'
 									rel='noopener noreferrer'
+									onClick={() => sendYandexGoal('VK')}
 								>
 									<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 										<img
@@ -220,11 +193,13 @@ export default function Hero() {
 										/>
 									</div>
 								</a>
+								{/* Telegram */}
 								<a
 									className='hover:opacity-80 transition-opacity'
-									href='https://t.me/lyudivuyuteinfo'
+									href='https://t.me/lyudivuyuteinfo  '
 									target='_blank'
 									rel='noopener noreferrer'
+									onClick={() => sendYandexGoal('Telegram')}
 								>
 									<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 										<img
@@ -234,11 +209,13 @@ export default function Hero() {
 										/>
 									</div>
 								</a>
+								{/* WhatsApp */}
 								<a
 									className='hover:opacity-80 transition-opacity hidden lg:block'
-									href='https://wa.me/9236033030'
+									href='https://wa.me/9236033030  '
 									target='_blank'
 									rel='noopener noreferrer'
+									onClick={() => sendYandexGoal('WhatsApp')}
 								>
 									<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 										<img
@@ -248,16 +225,18 @@ export default function Hero() {
 										/>
 									</div>
 								</a>
+								{/* MAX */}
 								<a
 									className='hover:opacity-80 transition-opacity'
-									href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+									href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo  '
 									target='_blank'
 									rel='noopener noreferrer'
+									onClick={() => sendYandexGoal('MAX')}
 								>
 									<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 										<img
 											src='/icons/max.svg'
-											alt='ma'
+											alt='max'
 											className='w-[20px] h-[20px]'
 										/>
 									</div>
@@ -302,14 +281,6 @@ export default function Hero() {
 								>
 									Смотреть даты
 								</button>
-
-								{/* Смотреть даты */}
-								{/* <button
-                  onClick={() => scrollToId("widget")}
-                  className="text-center border border-white text-white py-3 px-8 font-medium rounded-[30px] w-full transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
-                >
-                  Смотреть даты
-                </button> */}
 							</div>
 						</div>
 
@@ -331,17 +302,9 @@ export default function Hero() {
 										>
 											Смотреть даты
 										</button>
-
-										{/* Смотреть даты */}
-										{/* <button
-                      onClick={() => scrollToId("widget")}
-                      className="text-center border border-white text-white py-3 px-8 md:px-16 font-medium rounded-[30px] w-full sm:w-[320px] transition-all duration-300 cursor-pointer hover:bg-white hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
-                    >
-                      Смотреть даты
-                    </button> */}
 									</div>
 
-									{/* Иконки рейтинга под кнопкой, выровнены по левому краю (начало текста) */}
+									{/* Иконки рейтинга под кнопкой, выровнены по левому краю */}
 									<div className='hidden md:flex items-end gap-8 lg:gap-10'>
 										<img
 											className='w-16 sm:w-20'
@@ -368,7 +331,7 @@ export default function Hero() {
 					</div>
 				</div>
 
-				{/* Overlay с анимацией - всегда в DOM для плавности */}
+				{/* Overlay с анимацией */}
 				<div
 					className={`fixed inset-0 bg-black z-20 transition-all duration-300 ${
 						isMenuOpen && !isClosing
@@ -398,35 +361,13 @@ export default function Hero() {
 							пгт. Шерегеш, Звездная улица, 8
 						</div>
 						<div className='socials flex items-center gap-2'>
-							{/* <a
-								className='w-8 hover:opacity-80 transition-opacity'
-								href='#'
-								target='_blank'
-								rel='noopener noreferrer'
-							>
-								<img src='/images/socials/vk.png' alt='vk' />
-							</a>
-							<a
-								className='w-8 hover:opacity-80 transition-opacity'
-								href='#'
-								target='_blank'
-								rel='noopener noreferrer'
-							>
-								<img src='/images/socials/tg.png' alt='tg' />
-							</a>
-							<a
-								className='w-8 hover:opacity-80 transition-opacity'
-								href='#'
-								target='_blank'
-								rel='noopener noreferrer'
-							>
-								<img src='/images/socials/wa.png' alt='wa' />
-							</a> */}
+							{/* VK */}
 							<a
 								className=' hover:opacity-80 transition-opacity'
-								href='https://m.vk.com/lyudivuyute'
+								href='https://m.vk.com/lyudivuyute  '
 								target='_blank'
 								rel='noopener noreferrer'
+								onClick={() => sendYandexGoal('VK')}
 							>
 								<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 									<img
@@ -436,11 +377,13 @@ export default function Hero() {
 									/>
 								</div>
 							</a>
+							{/* Telegram */}
 							<a
 								className='hover:opacity-80 transition-opacity'
-								href='https://t.me/lyudivuyuteinfo'
+								href='https://t.me/lyudivuyuteinfo  '
 								target='_blank'
 								rel='noopener noreferrer'
+								onClick={() => sendYandexGoal('Telegram')}
 							>
 								<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 									<img
@@ -450,11 +393,13 @@ export default function Hero() {
 									/>
 								</div>
 							</a>
+							{/* WhatsApp */}
 							<a
 								className='hover:opacity-80 transition-opacity'
-								href='https://wa.me/9236033030'
+								href='https://wa.me/9236033030  '
 								target='_blank'
 								rel='noopener noreferrer'
+								onClick={() => sendYandexGoal('WhatsApp')}
 							>
 								<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 									<img
@@ -464,16 +409,18 @@ export default function Hero() {
 									/>
 								</div>
 							</a>
+							{/* MAX */}
 							<a
 								className='hover:opacity-80 transition-opacity'
-								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo  '
 								target='_blank'
 								rel='noopener noreferrer'
+								onClick={() => sendYandexGoal('MAX')}
 							>
 								<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
 									<img
 										src='/icons/max.svg'
-										alt='ma'
+										alt='max'
 										className='w-[20px] h-[20px]'
 									/>
 								</div>
@@ -499,8 +446,6 @@ export default function Hero() {
 							{item.title}
 						</Link>
 					))}
-
-					{/* Кнопка бронирования в меню */}
 				</div>
 
 				{/* CSS анимации */}
@@ -526,7 +471,6 @@ export default function Hero() {
 						}
 					}
 
-					/* Кастомный брейкпоинт для iPhone 12 Pro (391px - 400px) */
 					@media (min-width: 390px) and (max-width: 400px) {
 						.hero {
 							min-height: 110vh !important;
@@ -548,9 +492,6 @@ export default function Hero() {
 					}
 				`}</style>
 			</section>
-
-			{/* Плавающая кнопка "Свяжитесь с нами" */}
-			{/* <FloatingContactButton /> */}
 		</>
 	)
 }

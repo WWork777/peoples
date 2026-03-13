@@ -1,8 +1,16 @@
+'use client'
 import Link from 'next/link'
 import SimpleContactForm from '../forms/simple-contact-form'
 import YandexRatingBadge from '../yandex-rating-badge'
 
 export default function Contacts() {
+	// Вспомогательная функция для отправки целей в Яндекс.Метрику
+	const sendYandexGoal = goalName => {
+		if (typeof window !== 'undefined' && window.ym) {
+			window.ym(106106917, 'reachGoal', goalName)
+		}
+	}
+
 	return (
 		<section
 			id='contacts'
@@ -36,13 +44,15 @@ export default function Contacts() {
 						<li>lyudi.v.uyute@yandex.ru</li>
 					</ul>
 					<ul className='socials flex items-center gap-4 list-none py-5'>
+						{/* WhatsApp */}
 						<li className='inline-block'>
 							<a
 								className='w-8 hover:opacity-80 transition-opacity block'
-								href='https://wa.me/79991234567'
+								href='https://wa.me/79991234567  '
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Напишите нам в WhatsApp'
+								onClick={() => sendYandexGoal('WhatsApp')}
 							>
 								<img
 									src='/images/contacts/wa.webp'
@@ -52,13 +62,15 @@ export default function Contacts() {
 								/>
 							</a>
 						</li>
+						{/* Telegram */}
 						<li className='inline-block'>
 							<a
 								className='w-8 hover:opacity-80 transition-opacity block'
-								href='https://t.me/lyudivuyuteinfo'
+								href='https://t.me/lyudivuyuteinfo  '
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Наш Telegram канал'
+								onClick={() => sendYandexGoal('Telegram')}
 							>
 								<img
 									src='/images/contacts/tg.webp'
@@ -68,13 +80,15 @@ export default function Contacts() {
 								/>
 							</a>
 						</li>
+						{/* MAX */}
 						<li className='inline-block'>
 							<a
 								className='w-8 hover:opacity-80 transition-opacity block'
-								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
+								href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo  '
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Напишите нам в Max'
+								onClick={() => sendYandexGoal('MAX')}
 							>
 								<img
 									src='/icons/max.svg'
@@ -84,10 +98,11 @@ export default function Contacts() {
 								/>
 							</a>
 						</li>
+						{/* 2GIS (без цели, так как не указана в запросе) */}
 						<li className='inline-block'>
 							<a
 								className='w-19 hover:opacity-80 transition-opacity block'
-								href='https://2gis.ru/sheregesh/firm/70000001094596851?m=87.98269%2C52.951922%2F16&utm_source=widget_firm'
+								href='https://2gis.ru/sheregesh/firm/70000001094596851?m=87.98269%2C52.951922%2F16&utm_source=widget_firm  '
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Наш 2gis'
@@ -100,13 +115,15 @@ export default function Contacts() {
 								/>
 							</a>
 						</li>
+						{/* VK */}
 						<li className='inline-block'>
 							<a
 								className='w-8 hover:opacity-80 transition-opacity block'
-								href='https://m.vk.com/lyudivuyute'
+								href='https://m.vk.com/lyudivuyute  '
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Наша страница ВКонтакте'
+								onClick={() => sendYandexGoal('VK')}
 							>
 								<img
 									src='/images/contacts/vk.webp'
@@ -143,14 +160,14 @@ export default function Contacts() {
 						</span>
 					</Link>
 
-					{/* Блок о разработчике - только для десктопа (в левой колонке) */}
+					{/* Блок о разработчике - только для десктопа */}
 					<div className='hidden md:block pt-10 pb-4 border-t border-gray-600/30 mt-10'>
 						<div className='bg-white/5 backdrop-blur-sm rounded-lg p-5 hover:bg-white/10 transition-all duration-300'>
 							<span className='text-sm text-gray-300 uppercase tracking-wider block mb-3'>
 								Разработка сайта
 							</span>
 							<a
-								href='https://virlab42.ru'
+								href='https://virlab42.ru  '
 								target='_blank'
 								rel='noopener noreferrer'
 								className='flex items-center gap-4 group'
@@ -176,7 +193,7 @@ export default function Contacts() {
 					</div>
 				</div>
 
-				{/* Правая колонка с формой - без изменений на десктопе */}
+				{/* Правая колонка с формой */}
 				<div className='w-full md:w-1/2 flex items-center justify-center md:justify-start'>
 					<div className='w-full'>
 						<span className='text-[24px] font-medium'>
@@ -190,7 +207,7 @@ export default function Contacts() {
 				</div>
 			</div>
 
-			{/* Блок о разработчике - только для мобильных (под всем контентом) */}
+			{/* Блок о разработчике - только для мобильных */}
 			<div className='block md:hidden container max-w-7xl mx-auto px-3.75 pb-10'>
 				<div className='w-full pt-0 mt-0 border-t border-gray-600/30'>
 					<div className='bg-white/5 backdrop-blur-sm rounded-lg p-5 hover:bg-white/10 transition-all duration-300'>
@@ -198,7 +215,7 @@ export default function Contacts() {
 							Разработка сайта
 						</span>
 						<a
-							href='https://virlab42.ru'
+							href='https://virlab42.ru  '
 							target='_blank'
 							rel='noopener noreferrer'
 							className='flex items-center gap-4 group'
