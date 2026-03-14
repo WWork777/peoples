@@ -196,7 +196,7 @@ export default function Hero() {
 								{/* Telegram */}
 								<a
 									className='hover:opacity-80 transition-opacity'
-									href='https://t.me/lyudivuyuteinfo  '
+									href='https://t.me/lyudi_v_uyute'
 									target='_blank'
 									rel='noopener noreferrer'
 									onClick={() => sendYandexGoal('Telegram')}
@@ -210,7 +210,7 @@ export default function Hero() {
 									</div>
 								</a>
 								{/* WhatsApp */}
-								<a
+								{/* <a
 									className='hover:opacity-80 transition-opacity hidden lg:block'
 									href='https://wa.me/9236033030  '
 									target='_blank'
@@ -224,7 +224,7 @@ export default function Hero() {
 											className='w-[20px] h-[20px]'
 										/>
 									</div>
-								</a>
+								</a> */}
 								{/* MAX */}
 								<a
 									className='hover:opacity-80 transition-opacity'
@@ -380,7 +380,7 @@ export default function Hero() {
 							{/* Telegram */}
 							<a
 								className='hover:opacity-80 transition-opacity'
-								href='https://t.me/lyudivuyuteinfo  '
+								href='https://t.me/lyudi_v_uyute  '
 								target='_blank'
 								rel='noopener noreferrer'
 								onClick={() => sendYandexGoal('Telegram')}
@@ -394,7 +394,7 @@ export default function Hero() {
 								</div>
 							</a>
 							{/* WhatsApp */}
-							<a
+							{/* <a
 								className='hover:opacity-80 transition-opacity'
 								href='https://wa.me/9236033030  '
 								target='_blank'
@@ -408,7 +408,7 @@ export default function Hero() {
 										className='w-[20px] h-[20px]'
 									/>
 								</div>
-							</a>
+							</a> */}
 							{/* MAX */}
 							<a
 								className='hover:opacity-80 transition-opacity'

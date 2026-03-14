@@ -194,14 +194,14 @@ export default function Header() {
 						</a>
 						<a
 							className='w-8'
-							href='https://t.me/lyudivuyuteinfo'
+							href='https://t.me/lyudi_v_uyute'
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Наш Telegram канал'
 						>
 							<img src='/images/socials/tg.webp' alt='tg' />
 						</a>
-						<a
+						{/* <a
 							className='w-8  hidden lg:block'
 							href='https://wa.me/9236303030'
 							target='_blank'
@@ -209,7 +209,7 @@ export default function Header() {
 							aria-label='Напишите нам в WhatsApp'
 						>
 							<img src='/images/socials/wa.webp' alt='wa' />
-						</a>
+						</a> */}
 						<a
 							className=''
 							href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
@@ -282,7 +282,7 @@ export default function Header() {
 						</a>
 						<a
 							className='hover:opacity-80 transition-opacity'
-							href='https://t.me/lyudivuyuteinfo'
+							href='https://t.me/lyudi_v_uyute'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
@@ -294,7 +294,7 @@ export default function Header() {
 								/>
 							</div>
 						</a>
-						<a
+						{/* <a
 							className='hover:opacity-80 transition-opacity'
 							href='https://wa.me/9236033030'
 							target='_blank'
@@ -307,7 +307,7 @@ export default function Header() {
 									className='w-[20px] h-[20px]'
 								/>
 							</div>
-						</a>
+						</a> */}
 						<a
 							className='hover:opacity-80 transition-opacity'
 							href='https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo'
