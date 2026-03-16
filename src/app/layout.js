@@ -1,3 +1,4 @@
+import FloatingContactButton from '@/components/home-page/floating-contact-button'
 import YandexMetrika from '@/components/YandexMetrika/YandexMEtrika'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
 			<body className={`${montserrat.variable} antialiased`}>
 				<div className='max-w-480 mx-auto'>{children}</div>
 				<YandexMetrika />
+				<FloatingContactButton />
 			</body>
 		</html>
 	)

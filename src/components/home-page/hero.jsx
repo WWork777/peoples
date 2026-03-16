@@ -364,7 +364,7 @@ export default function Hero() {
 							{/* VK */}
 							<a
 								className=' hover:opacity-80 transition-opacity'
-								href='https://m.vk.com/lyudivuyute  '
+								href='https://m.vk.com/lyudivuyute'
 								target='_blank'
 								rel='noopener noreferrer'
 								onClick={() => sendYandexGoal('VK')}
@@ -380,7 +380,7 @@ export default function Hero() {
 							{/* Telegram */}
 							<a
 								className='hover:opacity-80 transition-opacity'
-								href='https://t.me/lyudi_v_uyute  '
+								href='https://t.me/lyudi_v_uyute'
 								target='_blank'
 								rel='noopener noreferrer'
 								onClick={() => sendYandexGoal('Telegram')}
