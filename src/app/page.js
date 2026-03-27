@@ -11,6 +11,8 @@ import RestWidget from "@/components/home-page/rest-widget";
 import Reviews from "@/components/home-page/reviews/reviews";
 import JsonLd from "@/components/JsonLd";
 
+import Map from "@/components/3dMap";
+
 export const metadata = {
   title: "Снять дом в Шерегеше посуточно | Люди в уюте",
   description:
@@ -73,7 +75,7 @@ export default function Home() {
       <Loyalty />
       {/* <Quiz /> */}
       {/* <PriceBlock /> */}
-      {/* <Map /> */}
+      <Map />
       <Promotion />
       <AdditionalServices />
       <Gallery />
