@@ -8,7 +8,7 @@ export default function Loyalty() {
 						ПРОГРАММА ЛОЯЛЬНОСТИ
 					</h2>
 					<h3 className='text-(--accent-color) font-medium text-left'>
-						КЭШБЕК 20% НА ПРОЖИВАНИЕ <br /> В ГОСТЕВОМ КОМПЛЕКСЕ "ЛЮДИ В УЮТЕ"
+						КЭШБЕК 30% НА ПРОЖИВАНИЕ <br /> В ГОСТЕВОМ КОМПЛЕКСЕ "ЛЮДИ В УЮТЕ"
 					</h3>
 				</div>
 			</div>

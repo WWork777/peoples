@@ -332,14 +332,6 @@ export default function Hero() {
 							<div className='hidden md:flex lg:hidden w-full justify-center pt-6 pb-12 px-4'>
 								<HeroContactForm />
 							</div>
-
-							{/* <div className="w-full max-w-3xl mx-auto overflow-hidden rounded-lg shadow-lg aspect-video bg-black">
-								<iframe
-									src="http://localhost:1984/webrtc.html?src=camera1&media=video" 
-									className="w-full h-full border-0"
-									allow="fullscreen"
-								/>
-							</div> */}
 						</div>
 					</div>
 				</div>

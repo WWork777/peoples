@@ -10,6 +10,7 @@ import Promotion from "@/components/home-page/promotion";
 import RestWidget from "@/components/home-page/rest-widget";
 import Reviews from "@/components/home-page/reviews/reviews";
 import JsonLd from "@/components/JsonLd";
+import VideoPlayer from "@/components/home-page/video-player";
 
 import Map from "@/components/3dMap";
 
@@ -78,6 +79,7 @@ export default function Home() {
       <Map />
       <Promotion />
       <AdditionalServices />
+      <VideoPlayer />
       <Gallery />
       <Reviews />
       <Dobro />
