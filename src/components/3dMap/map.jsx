@@ -124,7 +124,7 @@ export default function MapLeaf() {
             <h3>Выберите и забронируйте</h3>
           </div>
           <FitImageBounds bounds={mapBounds} />
-          <ImageOverlay url="/map.jpg" bounds={mapBounds} />
+          <ImageOverlay url="/mapLeto.jpg" bounds={mapBounds} />
 
           {houses.map((house) => {
             const [h, w] = house.boxSize;

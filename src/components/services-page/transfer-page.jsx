@@ -539,7 +539,7 @@ export default function TransferPage() {
 					<div className='w-full md:w-1/2'>
 						<div className='h-[340px] max-w-[560px] mx-auto'>
 							<img
-								src='/images/additional/1.png'
+								src='/images/additional/leto/1.png'
 								alt='Трансфер из аэропорта до гостевого комплекса'
 								className='w-full h-full object-cover rounded-3xl'
 							/>

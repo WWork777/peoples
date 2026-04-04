@@ -206,7 +206,7 @@ export default function AdditionalServices() {
 				<div className='grid sm:grid-cols-2 xl:grid-cols-4 gap-6 py-10'>
 					{/* 1 ТРАНСФЕР */}
 					<CardContent
-						img='/images/additional/1.png'
+						img='/images/additional/leto/1.png'
 						title='ТРАНСФЕР'
 						description='Поможем купить авиабилеты, организовать трансфер и встречу в аэропорту.'
 						onDateClick={scrollToWidget}
@@ -215,9 +215,9 @@ export default function AdditionalServices() {
 
 					{/* 2 ИНСТРУКТОР */}
 					<CardContent
-						img='/images/additional/2.png'
-						title='ИНСТРУКТОР'
-						description='Профессиональные инструктора помогут освоить новые навыки и техники.'
+						img='/images/additional/leto/2.png'
+						title='ГРУППОВЫЕ ЗАНЯТИЯ'
+						description='Ретриты, випассаны, йоги и другая активность на территории комплекса.'
 						onDateClick={scrollToWidget}
 						serviceLink='/services/instructor'
 					/>
@@ -242,16 +242,16 @@ export default function AdditionalServices() {
 
 					{/* 5 ПРОКАТ */}
 					<CardContent
-						img='/images/additional/5.png'
+						img='/images/additional/leto/5.png'
 						title='ПРОКАТ'
 						description='Прокат оборудования и снаряжения для комфортного отдыха.'
 						onDateClick={scrollToWidget}
-						serviceLink='/services/rental'
+						serviceLink='tel:+7 (923) 603-30-30'
 					/>
 
 					{/* 6 ПРОЖИВАНИЕ С ДЕТЬМИ */}
 					<CardContent
-						img='/images/additional/6.png'
+						img='/images/additional/leto/6.png'
 						title={'ПРОЖИВАНИЕ\nС ДЕТЬМИ'}
 						description='Удобные условия для отдыха с детьми и развлечения для всей семьи.'
 						onDateClick={scrollToWidget}
@@ -313,14 +313,14 @@ function CardContent({ img, title, description, onDateClick, serviceLink }) {
 				</div>
 
 				<div>
-					<Link href={serviceLink}>
+					<a href={serviceLink}>
 						<h4
 							style={{ whiteSpace: 'pre-line' }}
 							className='text-[23px] font-bold text-white pb-2 hover:text-(--accent-color) transition-colors cursor-pointer'
 						>
 							{title}
 						</h4>
-					</Link>
+					</a>
 
 					<p className='text-white/90 text-sm mb-3'>{description}</p>
 

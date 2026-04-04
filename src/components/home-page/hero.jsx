@@ -160,10 +160,10 @@ export default function Hero() {
 					className='absolute top-0 left-0 w-full h-full object-cover'
 					preload='auto'
 				>
-					<source src='/images/main/main.mp4' type='video/mp4' />
+					<source src='/images/main/letoMain.mp4' type='video/mp4' />
 					Ваш браузер не поддерживает видео.
 				</video>
-				<div className='absolute inset-0 w-full bg-black/40 z-10'>
+				<div className='absolute inset-0 w-full bg-black/50 z-10'>
 					<div className='container max-w-7xl mx-auto min-h-[120vh] sm:min-h-[120vh] md:min-h-[120vh] lg:min-h-screen px-3.75 py-5 md:py-0'>
 						{/* Основной header в hero секции */}
 						<header className='flex justify-between items-center pt-1 sm:pt-5'>
@@ -263,12 +263,14 @@ export default function Hero() {
 									Гостевой комплекс <br /> «Люди в уюте»
 								</h1>
 								<h2 className='text-[20px] sm:text-[24px] leading-relaxed text-white/90'>
-									Ваш лучший отдых с видом <br /> на заснеженные вершины гор
+									{/* Ваш лучший отдых с видом <br /> на заснеженные вершины гор */}
+									База для ретрита в Шерегеше <br />
+									Отдых в Шерегеше летом
 								</h2>
 							</div>
 
 							{/* Форма на мобильных устройствах */}
-							<div className='px-1 pb-3'>
+							<div className='px-1 pb-3' id="heroform">
 								<HeroContactForm />
 							</div>
 
@@ -291,7 +293,9 @@ export default function Hero() {
 									Гостевой комплекс <br /> «Люди в уюте»
 								</h1>
 								<h2 className='text-[20px] sm:text-[24px] leading-relaxed md:leading-8'>
-									Ваш лучший отдых с видом <br /> на заснеженные вершины гор
+									{/* Ваш лучший отдых с видом <br /> на заснеженные вершины гор */}
+									База для ретрита в Шерегеше <br />
+									Отдых в Шерегеше летом
 								</h2>
 								<div className='flex flex-col gap-4 sm:gap-5 md:gap-6'>
 									<div className='flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6'>
@@ -325,11 +329,11 @@ export default function Hero() {
 								</div>
 							</div>
 							{/* Форма на десктопе и планшетах */}
-							<div className='hidden lg:flex flex-1 relative flex-col items-center justify-center pt-[15%] lg:pt-[15%] px-4 xl:px-0'>
+							<div className='hidden lg:flex flex-1 relative flex-col items-center justify-center pt-[15%] lg:pt-[15%] px-4 xl:px-0' id="heroform">
 								<HeroContactForm />
 							</div>
 							{/* Форма на планшетах (768px - 1024px) */}
-							<div className='hidden md:flex lg:hidden w-full justify-center pt-6 pb-12 px-4'>
+							<div className='hidden md:flex lg:hidden w-full justify-center pt-6 pb-12 px-4' id="heroform">
 								<HeroContactForm />
 							</div>
 						</div>

@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='ru'>
 			<body className={`${montserrat.variable} antialiased`}>
-				<div className='max-w-480 mx-auto'>{children}</div>
+				<div className='max-w-[2560px] mx-auto'>{children}</div>
 				<YandexMetrika />
 				<FloatingContactButton />
 			</body>

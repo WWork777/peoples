@@ -10,6 +10,9 @@ export default function Loyalty() {
 					<h3 className='text-(--accent-color) font-medium text-left'>
 						КЭШБЕК 30% НА ПРОЖИВАНИЕ <br /> В ГОСТЕВОМ КОМПЛЕКСЕ "ЛЮДИ В УЮТЕ"
 					</h3>
+					{/* <h3 className='text-(--accent-color) font-medium text-left pt-5'>
+						СКИДКА 10% ДО КОНЦА АПРЕЛЯ НА РАННЕЕ БРОНИРОВАНИЕ <br /> ПРОМОКОД: <strong>"ХОЧУЛЕТО"</strong>
+					</h3> */}
 				</div>
 			</div>
 			<div className='container max-w-480 mx-auto px-3.75 bg-white'>
