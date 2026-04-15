@@ -5,6 +5,7 @@ import ServiceSlider from '../sliders/service-page-slider'
 export default function DobroContent() {
 	const swiperRef1 = useRef(null)
 	const swiperRef2 = useRef(null)
+	const swiperRef3 = useRef(null)
 
 	const images = [
 		'/images/dobro/block1/1.webp',
@@ -21,6 +22,15 @@ export default function DobroContent() {
 		'/images/dobro/block2/img5.jpg',
 		'/images/dobro/block2/img6.jpg',
 		'/images/dobro/block2/img7.jpg',
+	]
+	const images3 = [
+		'/images/dobro/block3/6.jpg',
+		'/images/dobro/block3/1.jpg',
+		'/images/dobro/block3/2.jpg',
+		'/images/dobro/block3/3.jpg',
+		'/images/dobro/block3/4.jpg',
+		'/images/dobro/block3/5.jpg',
+		'/images/dobro/block3/7.jpg',
 	]
 	useEffect(() => {
 		// Небольшая задержка, чтобы переопределить скролл браузера
@@ -186,6 +196,70 @@ export default function DobroContent() {
 			<div className='w-full mb-16 bg-white sm:p-20 pb-10 pt-10 px-3.75'>
 				<div className='container max-w-7xl mx-auto'>
 					<ServiceSlider swiperRef={swiperRef2} images={images2} />
+				</div>
+			</div>
+
+			<div className='bg-background mt-10 px-3.75'>
+				<div className='container max-w-7xl mx-auto'>
+					<div className='flex  gap-6 lg:gap-8 items-stretch pt-10 pb-10'>
+						{/* LEFT: big card */}
+						<div className='w-full lg:flex-1 bg-white rounded-[32px] p-7 sm:p-10'>
+							<h2 className='text-[22px] sm:text-[28px] font-semibold text-(--accent-color) '>
+								У нас новый гость! Сахаров Марк со своей семьей.
+							</h2>
+						</div>
+					</div>
+					<div className='flex  gap-6 lg:gap-8 items-stretch  pb-10'>
+						{/* LEFT: big card */}
+						<div className='w-full lg:flex-1 bg-white rounded-[32px] p-7 sm:p-10'>
+							<p className='text-[16px] sm:text-[18px] font-base text-black '>
+								✨ Марк — юноша с огромным творческим даром и светлой душой. В свои 18 лет он уже успел покорить не одну сцену: читает стихи, 
+								дарит зрителям свой вокал, представляет творчество на губернаторских приёмах и становится лауреатом 
+								всероссийских конкурсов. А ещё он ведёт личный блог, рисует, снимает видео и с лёгкостью вдохновляет всех вокруг 🎤🎨
+							</p>
+							<br />
+							<p className='text-[16px] sm:text-[18px] font-base text-black pb-1'>
+								Команда гостевого комплекса «Люди в уюте» с радостью приняла Марка и его семью в Шерегеше. 
+								Эта поездка стала для них временем перезагрузки, тихой радости и новых впечатлений 🏔️ За несколько дней Марк успел познакомиться с милыми альпаками на ферме 🦙, 
+								получил заряд нежности от пушистых кроликов 🐇 и просто наслаждался прогулками под ласковым весенним солнцем.
+							</p>
+							<br />
+							<p className='text-[16px] sm:text-[18px] font-base text-black pb-1'>
+								☀️ Несмотря на оживлённость курортного посёлка, здесь удивительно спокойно и по-домашнему тепло. Марк и его близкие гуляли по сектору Е, 
+								дышали морозным горным воздухом и ловили моменты тишины — той самой, которой так не хватает в ритме мегаполиса.
+							</p>
+							<br />
+							<p className='text-[16px] sm:text-[18px] font-base text-black pb-1'>
+								🥰 Отдельное сердце согрели душевные посиделки с Гульнарой и Елизаветой: ароматный чай, 
+								румяные блинчики и разговоры по душам. Именно такие простые, но такие искренние мгновения остаются в памяти надолго.
+							</p>
+							<br />
+
+							<p className='text-[16px] sm:text-[18px] font-base text-black pb-1'>
+								Мы благодарим Марка и его замечательную семью за доверие, за открытость и за то вдохновение, которым они поделились с нами. 
+								Такие встречи напоминают: сила — не в громких словах, а в умении видеть красоту, ценить близость и идти вперёд с улыбкой 💗
+							</p>
+							<br />
+							<p className='text-[16px] sm:text-[18px] font-base text-black pb-1 '>
+								Для нас особенно важно создавать пространство, где каждая семья чувствует себя принятой, защищённой и свободной. 
+								Где можно выдохнуть, просто быть собой и наслаждаться моментом — в кругу близких, среди гор, в атмосфере настоящего уюта.
+							</p>
+							<br />
+							<p className='text-[16px] sm:text-[18px] font-base text-black pb-1'>
+								Спасибо, что были с нами, дорогие гости! 🤍
+								Ждём вас снова — за новыми впечатлениями, тёплыми встречами и тем самым чувством дома, которое остаётся в сердце ❤️
+							</p>
+							<br />
+							<p className='text-[16px] sm:text-[18px] font-base text-black '>
+								#ЛюдиВУюте #Шерегеш #ОтдыхСДушой #СемейныеЦенности #ТворчествоИТепло
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='w-full mb-16 bg-white sm:p-20 pb-10 pt-10 px-3.75'>
+				<div className='container max-w-7xl mx-auto'>
+					<ServiceSlider swiperRef={swiperRef3} images={images3} />
 				</div>
 			</div>
 		</>
