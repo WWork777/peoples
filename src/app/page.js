@@ -79,7 +79,7 @@ export default function Home() {
       <Map />
       <Promotion />
       <AdditionalServices />
-      <VideoPlayer />
+      {/* <VideoPlayer /> */}
       <Gallery />
       <Reviews />
       <Dobro />
