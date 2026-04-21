@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import HeroContactForm from "./hero-contact-form";
+import { CDN_URL } from "@/utils/constants";
 
 export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,25 +72,6 @@ export default function Hero() {
     }, 300);
   };
 
-  // Управление фиксированным header'ом при скролле
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-
-  //     // Показываем header при прокрутке вниз более 100px
-  //     if (currentScrollY > 100) {
-  //       setIsHeaderVisible(true);
-  //     } else {
-  //       setIsHeaderVisible(false);
-  //     }
-
-  //     setLastScrollY(currentScrollY);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [lastScrollY]);
-
   // Закрытие меню при нажатии Escape
   useEffect(() => {
     const handleEscape = (e) => {
@@ -117,7 +99,7 @@ export default function Hero() {
 
   return (
     <>
-      {/* Фиксированный header при скролле */}
+      {/* Фиксированный header при скролле (если раскомментируете, пути уже на CDN) */}
       {/* <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isHeaderVisible
@@ -128,9 +110,9 @@ export default function Hero() {
         <div className="container max-w-7xl mx-auto px-3.75 py-4">
           <div className="flex justify-between items-center">
             <Link className="flex items-center gap-5" href={"/"}>
-              <img src="/images/logo/logo.webp" alt="logotype" />
+              <img src={`${CDN_URL}/images/logo/logo.webp`} alt="logotype" />
               <span>
-                <img src="/images/logo/text.webp" alt="logo-text" />
+                <img src={`${CDN_URL}/images/logo/text.webp`} alt="logo-text" />
               </span>
             </Link>
             <div className="hidden md:block">
@@ -139,13 +121,8 @@ export default function Hero() {
             <button
               onClick={toggleMenu}
               className="cursor-pointer hover:opacity-80 transition-opacity"
-              aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
             >
-              {isMenuOpen ? (
-                <RxCross2 size={30} />
-              ) : (
-                <RxHamburgerMenu size={30} />
-              )}
+              {isMenuOpen ? <RxCross2 size={30} /> : <RxHamburgerMenu size={30} />}
             </button>
           </div>
         </div>
@@ -160,7 +137,10 @@ export default function Hero() {
           className="absolute top-0 left-0 w-full h-full object-cover"
           preload="auto"
         >
-          <source src="/images/main/compressed_letoMain.mp4" type="video/mp4" />
+          <source
+            src={`${CDN_URL}/images/main/compressed_letoMain.mp4`}
+            type="video/mp4"
+          />
           Ваш браузер не поддерживает видео.
         </video>
         <div className="absolute inset-0 w-full bg-black/50 z-10">
@@ -168,9 +148,12 @@ export default function Hero() {
             {/* Основной header в hero секции */}
             <header className="flex justify-between items-center pt-1 sm:pt-5">
               <Link className="flex items-center gap-5" href={"/"}>
-                <img src="/images/logo/logo.webp" alt="logotype" />
+                <img src={`${CDN_URL}/images/logo/logo.webp`} alt="logotype" />
                 <span>
-                  <img src="/images/logo/text.webp" alt="logo-text" />
+                  <img
+                    src={`${CDN_URL}/images/logo/text.webp`}
+                    alt="logo-text"
+                  />
                 </span>
               </Link>
               <div className="address hidden md:block">
@@ -180,14 +163,14 @@ export default function Hero() {
                 {/* VK */}
                 <a
                   className=" hover:opacity-80 transition-opacity"
-                  href="https://m.vk.com/lyudivuyute  "
+                  href="https://m.vk.com/lyudivuyute"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => sendYandexGoal("VK")}
                 >
                   <div className="w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center">
                     <img
-                      src="/images/socials/vk.webp"
+                      src={`${CDN_URL}/images/socials/vk.webp`}
                       alt="vk"
                       className="w-[20px] h-[20px]"
                     />
@@ -203,39 +186,23 @@ export default function Hero() {
                 >
                   <div className="w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center">
                     <img
-                      src="/images/socials/tg.webp"
+                      src={`${CDN_URL}/images/socials/tg.webp`}
                       alt="tg"
                       className="w-[20px] h-[20px]"
                     />
                   </div>
                 </a>
-                {/* WhatsApp */}
-                {/* <a
-									className='hover:opacity-80 transition-opacity hidden lg:block'
-									href='https://wa.me/9236033030  '
-									target='_blank'
-									rel='noopener noreferrer'
-									onClick={() => sendYandexGoal('WhatsApp')}
-								>
-									<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
-										<img
-											src='/images/socials/wa.webp'
-											alt='wa'
-											className='w-[20px] h-[20px]'
-										/>
-									</div>
-								</a> */}
                 {/* MAX */}
                 <a
                   className="hover:opacity-80 transition-opacity"
-                  href="https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo  "
+                  href="https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => sendYandexGoal("MAX")}
                 >
                   <div className="w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center">
                     <img
-                      src="/icons/max.svg"
+                      src={`${CDN_URL}/icons/max.svg`}
                       alt="max"
                       className="w-[20px] h-[20px]"
                     />
@@ -257,26 +224,21 @@ export default function Hero() {
 
             {/* Контейнер для мобильной версии */}
             <div className="md:hidden">
-              {/* Текст по центру на мобильных */}
               <div className="text-center pt-[4%] sm:pt-[12%] pb-3">
                 <h1 className="text-[34px] sm:text-[48px] leading-tight mb-4">
                   Гостевой комплекс <br /> «Люди в уюте»
                 </h1>
                 <h2 className="text-[20px] sm:text-[24px] leading-relaxed text-white/90">
-                  {/* Ваш лучший отдых с видом <br /> на заснеженные вершины гор */}
                   База для ретрита в Шерегеше <br />
                   Отдых в Шерегеше летом
                 </h2>
               </div>
 
-              {/* Форма на мобильных устройствах */}
               <div className="px-1 pb-3" id="heroform">
                 <HeroContactForm />
               </div>
 
-              {/* Кнопки под формой на мобильных */}
               <div className="flex flex-col gap-4 px-1">
-                {/* Забронировать */}
                 <button
                   onClick={() => scrollToId("widget")}
                   className="bg-(--accent-color) py-3 px-8 font-medium rounded-[30px] w-full transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
@@ -293,13 +255,11 @@ export default function Hero() {
                   Гостевой комплекс <br /> «Люди в уюте»
                 </h1>
                 <h2 className="text-[20px] sm:text-[24px] leading-relaxed md:leading-8">
-                  {/* Ваш лучший отдых с видом <br /> на заснеженные вершины гор */}
                   База для ретрита в Шерегеше <br />
                   Отдых в Шерегеше летом
                 </h2>
                 <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6">
-                    {/* Забронировать */}
                     <button
                       onClick={() => scrollToId("widget")}
                       className="bg-(--accent-color) py-3 px-8 md:px-16 font-medium rounded-[30px] w-full sm:w-[320px] transition-all duration-300 cursor-pointer hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-95"
@@ -308,34 +268,32 @@ export default function Hero() {
                     </button>
                   </div>
 
-                  {/* Иконки рейтинга под кнопкой, выровнены по левому краю */}
+                  {/* Иконки рейтинга под кнопкой */}
                   <div className="hidden md:flex items-end gap-8 lg:gap-10">
                     <img
                       className="w-16 sm:w-20"
-                      src="/images/rate/group_70.svg"
+                      src={`${CDN_URL}/images/rate/group_70.svg`}
                       alt="Group_70.svg"
                     />
                     <img
                       className="w-16 sm:w-20"
-                      src="/images/rate/Group_69.svg"
+                      src={`${CDN_URL}/images/rate/Group_69.svg`}
                       alt="Group_69.svg"
                     />
                     <img
                       className="w-16 sm:w-20"
-                      src="/images/rate/Group_66.svg"
+                      src={`${CDN_URL}/images/rate/Group_66.svg`}
                       alt="Group_66.svg"
                     />
                   </div>
                 </div>
               </div>
-              {/* Форма на десктопе и планшетах */}
               <div
                 className="hidden lg:flex flex-1 relative flex-col items-center justify-center pt-[15%] lg:pt-[15%] px-4 xl:px-0"
                 id="heroform"
               >
                 <HeroContactForm />
               </div>
-              {/* Форма на планшетах (768px - 1024px) */}
               <div
                 className="hidden md:flex lg:hidden w-full justify-center pt-6 pb-12 px-4"
                 id="heroform"
@@ -346,7 +304,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Overlay с анимацией */}
+        {/* Overlay */}
         <div
           className={`fixed inset-0 bg-black z-20 transition-all duration-300 ${
             isMenuOpen && !isClosing
@@ -356,7 +314,7 @@ export default function Hero() {
           onClick={closeMenu}
         />
 
-        {/* Меню с плавным выездом */}
+        {/* Меню */}
         <div
           className={`fixed z-100 top-0 right-0 bottom-0 bg-background text-(--accent-color) font-semibold text-lg flex flex-col gap-8 w-full md:w-90 p-10 transition-transform duration-300 ease-out ${
             isMenuOpen && !isClosing ? "translate-x-0" : "translate-x-full"
@@ -376,7 +334,6 @@ export default function Hero() {
               пгт. Шерегеш, Звездная улица, 8
             </div>
             <div className="socials flex items-center gap-2">
-              {/* VK */}
               <a
                 className=" hover:opacity-80 transition-opacity"
                 href="https://m.vk.com/lyudivuyute"
@@ -386,13 +343,12 @@ export default function Hero() {
               >
                 <div className="w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center">
                   <img
-                    src="/images/socials/vk.webp"
+                    src={`${CDN_URL}/images/socials/vk.webp`}
                     alt="vk"
                     className="w-[20px] h-[20px]"
                   />
                 </div>
               </a>
-              {/* Telegram */}
               <a
                 className="hover:opacity-80 transition-opacity"
                 href="https://t.me/lyudi_v_uyute"
@@ -402,39 +358,22 @@ export default function Hero() {
               >
                 <div className="w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center">
                   <img
-                    src="/images/socials/tg.webp"
+                    src={`${CDN_URL}/images/socials/tg.webp`}
                     alt="tg"
                     className="w-[20px] h-[20px]"
                   />
                 </div>
               </a>
-              {/* WhatsApp */}
-              {/* <a
-								className='hover:opacity-80 transition-opacity'
-								href='https://wa.me/9236033030  '
-								target='_blank'
-								rel='noopener noreferrer'
-								onClick={() => sendYandexGoal('WhatsApp')}
-							>
-								<div className='w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center'>
-									<img
-										src='/images/socials/wa.webp'
-										alt='wa'
-										className='w-[20px] h-[20px]'
-									/>
-								</div>
-							</a> */}
-              {/* MAX */}
               <a
                 className="hover:opacity-80 transition-opacity"
-                href="https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo  "
+                href="https://max.ru/u/f9LHodD0cOJIT46gw725ziVZ5znGZ9Jf1WYGFmKM-G5O-sOt4pBNZzkc8Zo"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sendYandexGoal("MAX")}
               >
                 <div className="w-10 h-10 bg-[#004530] rounded-full flex items-center justify-center">
                   <img
-                    src="/icons/max.svg"
+                    src={`${CDN_URL}/icons/max.svg`}
                     alt="max"
                     className="w-[20px] h-[20px]"
                   />
@@ -463,7 +402,6 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* CSS анимации */}
         <style jsx>{`
           @keyframes slideInRight {
             from {
@@ -480,27 +418,22 @@ export default function Hero() {
             .hero {
               min-height: 100vh !important;
             }
-
             .hero .container {
               min-height: 100vh !important;
             }
           }
-
           @media (min-width: 390px) and (max-width: 400px) {
             .hero {
               min-height: 110vh !important;
             }
-
             .hero .container {
               min-height: 110vh !important;
             }
           }
-
           @media (min-width: 374px) and (max-width: 389px) {
             .hero {
               min-height: 120vh !important;
             }
-
             .hero .container {
               min-height: 120vh !important;
             }

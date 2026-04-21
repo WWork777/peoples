@@ -11,6 +11,8 @@ import {
 import "leaflet/dist/leaflet.css";
 import "./style.scss";
 import Link from "next/link";
+// Импортируем CDN_URL
+import { CDN_URL } from "@/utils/constants";
 
 const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
 
@@ -107,8 +109,6 @@ export default function MapLeaf() {
   return (
     <div className="leaflet-map">
       <div className="map-wrapper">
-        {/* 🔥 Заголовок поверх карты */}
-
         <MapContainer
           crs={crs}
           maxBounds={mapBounds}
@@ -124,7 +124,8 @@ export default function MapLeaf() {
             <h3>Выберите и забронируйте</h3>
           </div>
           <FitImageBounds bounds={mapBounds} />
-          <ImageOverlay url="/mapLeto.jpg" bounds={mapBounds} />
+          {/* Обновленный путь к фоновой картинке карты */}
+          <ImageOverlay url={`${CDN_URL}/mapLeto.jpg`} bounds={mapBounds} />
 
           {houses.map((house) => {
             const [h, w] = house.boxSize;
