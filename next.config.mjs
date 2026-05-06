@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Статика (JS/CSS) теперь полетит через CDN
-  assetPrefix: "https://cdn.xn--b1adekn9bg8fe.xn--p1ai",
+  // assetPrefix: "https://cdn.xn--b1adekn9bg8fe.xn--p1ai",
+    assetPrefix: "",
 
   images: {
     loader: "custom",
